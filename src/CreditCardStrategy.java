@@ -23,10 +23,10 @@ public class CreditCardStrategy implements PaymentStrategy {
 			System.out.println("Carta "+acq.getCardNumber()+" accettata, tentativo di pagamento in corso...");
 			int budget = acq.getBudget();
 			budget -= amount;
-			System.out.println("Pagamento di "+amount+" �, effettuato dal Sig. "+acq.getNome()+" riuscito, il budget rimanente � di "+budget+" �");
+			System.out.println("Pagamento di "+amount+" €, effettuato dal Sig. "+acq.getNome()+" riuscito, il budget rimanente è di "+budget+" €");
 			acq.setBudget(budget);
 		}
 		else
-			System.out.println("Il codice cvv non � corretto");
+			System.out.println("Il codice cvv non è corretto");
 	}
 }

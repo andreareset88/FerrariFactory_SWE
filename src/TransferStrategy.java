@@ -14,7 +14,7 @@ public class TransferStrategy implements PaymentStrategy {
 		System.out.println("Tentativo di pagamento tramite bonifico in corso...");
 		int budget = acq.getBudget();
 		budget -= amount;
-		System.out.println(amount+" pagato con bonifico effettuato da "+acq.getNome()+" all'IBAN "+acq.getIBAN()+", rimangono "+budget+" �");
+		System.out.println(amount+" pagato con bonifico effettuato da "+acq.getNome()+" all'IBAN "+acq.getIBAN()+", rimangono "+budget+" €");
 		acq.setBudget(budget);
 	}
 }

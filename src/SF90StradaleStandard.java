@@ -24,7 +24,7 @@ public class SF90StradaleStandard implements SF90Stradale {
 			e.printStackTrace();
 		}
 		if(budget >= price) {
-			System.out.println(acq.getNome()+" � abilitato all'acquisto!");
+			System.out.println(acq.getNome()+" è abilitato all'acquisto!");
 			return true;
 		} else {
 			System.out.println("ERRORE, budget troppo basso, "+acq.getNome()+" non pu� procedere all'acquisto..");
@@ -49,10 +49,10 @@ public class SF90StradaleStandard implements SF90Stradale {
 			}
 			System.out.println("COSTRUZIONE COMPLETATA!");
 			System.out.print("E' stata scelta la versione BASE, che include un motore ibrido da  "+hp+" cv");
-			System.out.println(acq.getNome()+" , l'auto Le verr� consegnata tra "+acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione())+" giorni");
+			System.out.println(acq.getNome()+" , l'auto Le verrà consegnata tra "+acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione())+" giorni");
 			return this;
 		} else {
-			System.out.println("Spiacente, la costruzione non � andata a buon fine");
+			System.out.println("Spiacente, la costruzione non è andata a buon fine");
 			return null;
 		}
 	}
