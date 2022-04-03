@@ -5,14 +5,16 @@ public final class LaFerrariDeluxe implements LaFerrari {
 	private int price;
 	private Acquirente acq;
 	private PaymentStrategy method;
+	private Catalogo catalogo;
 	
-	public LaFerrariDeluxe(int hp, boolean satNav, boolean leatherWheel, int price, Acquirente acq, PaymentStrategy method) {
+	public LaFerrariDeluxe(int hp, boolean satNav, boolean leatherWheel, int price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
 		this.satNav = satNav;
 		this.leatherWheel = leatherWheel;
 		this.price = price;
 		this.acq = acq;
 		this.method = method;
+		this.catalogo = catalogo;
 	}
 	
 	private boolean checkBudget() {
@@ -39,27 +41,31 @@ public final class LaFerrariDeluxe implements LaFerrari {
 	
 	@Override
 	public LaFerrari create() {
-		if(checkBudget()) {
-			paga(method);
-			System.out.println("Costruzione de LaFerrari...");
-			try {
-				Thread.sleep(10000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		if(catalogo.isLaFerrari()) {
+			if (checkBudget()) {
+				paga(method);
+				System.out.println("E' in corso l'invio dell'ordine alla fabbrica per la LaFerrari...");
+				try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				System.out.println("INVIO EFFETTUATO!");
+				System.out.println("E' stata scelta la versione DELUXE, che include un motore ibrido da " + hp + " cv");
+				if (satNav)
+					System.out.print(" , il sistema di navigazione");
+				if (leatherWheel)
+					System.out.println(" , il volante in pelle");
+				int giorni = acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione());
+				System.out.println(acq.getNome() + " , l'auto Le verrà consegnata tra " + giorni + " giorni");
+				return this;
+			} else {
+				System.out.println("Spiacenti, l'invio non è andato a buon fine");
+				return null;
 			}
-			System.out.println("COSTRUZIONE COMPLETATA!");
-			System.out.println("E' stata scelta la versione DELUXE, che include un motore ibrido da "+hp+" cv");
-			if(satNav)
-				System.out.print(" , il sistema di navigazione");
-			if(leatherWheel)
-				System.out.println(" , il volante in pelle");
-			System.out.println(acq.getNome()+" , l'auto Le verrà consegnata tra "+acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione())+" giorni");
-			return this;
-		} else {
-			System.out.println("Spiacente, la costruzione non è andata a buon fine");
-			return null;
-		}
+		} else return null;
 	}
+
 	public int getHp() {
 		return hp;
 	}

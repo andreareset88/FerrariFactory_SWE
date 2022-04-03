@@ -5,14 +5,16 @@ public class SF90StradaleStandard implements SF90Stradale {
 	private int price;
 	private Acquirente acq;
 	private PaymentStrategy method;
+	private Catalogo catalogo;
 	
-	public SF90StradaleStandard(int hp, boolean satNav, boolean leatherWheel, int price, Acquirente acq, PaymentStrategy method) {
+	public SF90StradaleStandard(int hp, boolean satNav, boolean leatherWheel, int price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
 		this.satNav = satNav;
 		this.leatherWheel = leatherWheel;
 		this.price = price;
 		this.acq = acq;
 		this.method = method;
+		this.catalogo = catalogo;
 	}
 	
 	private boolean checkBudget() {
@@ -39,22 +41,24 @@ public class SF90StradaleStandard implements SF90Stradale {
 	
 	@Override
 	public SF90Stradale create() {
-		if(checkBudget()) {
-			paga(method);
-			System.out.println("Costruzione della SF90 Stradale...");
-			try {
-				Thread.sleep(10000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		if(catalogo.isSf90Stradale()) {
+			if (checkBudget()) {
+				paga(method);
+				System.out.println("Invio dell'ordine alla fabbrica per la SF90 Stradale in corso...");
+				try {
+					Thread.sleep(10000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				System.out.println("INVIO COMPLETATO!");
+				System.out.print("E' stata scelta la versione BASE, che include un motore ibrido da  " + hp + " cv");
+				System.out.println(acq.getNome() + " , l'auto Le verrà consegnata tra " + acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione()) + " giorni");
+				return this;
+			} else {
+				System.out.println("Siamo spiacenti, l'invio non è andato a buon fine");
+				return null;
 			}
-			System.out.println("COSTRUZIONE COMPLETATA!");
-			System.out.print("E' stata scelta la versione BASE, che include un motore ibrido da  "+hp+" cv");
-			System.out.println(acq.getNome()+" , l'auto Le verrà consegnata tra "+acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione())+" giorni");
-			return this;
-		} else {
-			System.out.println("Spiacente, la costruzione non è andata a buon fine");
-			return null;
-		}
+		} else return null;
 	}
 	public int getHp() {
 		return hp;

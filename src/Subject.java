@@ -13,8 +13,8 @@ public abstract class Subject {
 	}
 	
 	public void Notify() {
-		for(int i=0; i<observers.size(); i++) {
-			observers.get(i).Update();
+		for (Observer observer : observers) {
+			observer.Update();
 		}
 	}
 }

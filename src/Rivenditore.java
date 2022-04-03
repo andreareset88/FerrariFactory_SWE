@@ -9,18 +9,21 @@ public class Rivenditore implements Observer {
 	private SF90Stradale sf90stradale;
 	private Testarossa testarossa;
 	private PaymentStrategy method;
+	private Catalogo catalogo;
 	private static Rivenditore instance = null;
 	
-	private Rivenditore(Acquirente acq, PaymentStrategy method) {
+	private Rivenditore(Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.acq = acq;
 		this.acq.Attach(this);
 		this.method = method;
+		this.catalogo = catalogo;
+		catalogo.autoDisponibili();
 	}
 	
 	// SINGLETON
-	public static Rivenditore getInstance(Acquirente acq, PaymentStrategy method) {
+	public static Rivenditore getInstance(Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		if(instance == null)
-			instance = new Rivenditore(acq, method);
+			instance = new Rivenditore(acq, method, catalogo);
 		return instance;
 	}
 
@@ -33,9 +36,9 @@ public class Rivenditore implements Observer {
 	
 	private void createFactory() {
 		if(versione == 0)
-			factory = new StandardFactory(acq, method);
+			factory = new StandardFactory(acq, method, catalogo);
 		else if(versione == 1)
-			factory = new DeluxeFactory(acq, method);
+			factory = new DeluxeFactory(acq, method, catalogo);
 		else System.out.println("ERROR, select 0 or 1!");
 		if(tipoAuto == 0) {
 			laferrari = factory.createLaFerrari();
