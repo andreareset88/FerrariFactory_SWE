@@ -55,6 +55,13 @@ public class Rivenditore implements Observer {
 		//else System.out.println("ERROR, select 0, 1 or 2!");
 	}
 
+	public void pubblicizza() throws InterruptedException {
+		System.out.println("SPOT PUBBLICITARIO IN TRASMISSIONE...");
+		acq.updateIndiceGradimento((int)(Math.random() * 101));
+		Thread.sleep(5000);
+		System.out.println("SPOT TERMINATO");
+	}
+
 	public int getTipoAuto() {
 		return tipoAuto;
 	}

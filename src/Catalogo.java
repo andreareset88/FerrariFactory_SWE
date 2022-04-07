@@ -3,10 +3,10 @@ public class Catalogo {
     private int numeroSf90Stradale = 0;
     private int numeroTestarossa = 0;
 
-    public Catalogo(int numeroLaFerrari, int numeroSf90Stradale, int numeroTestarossa){
-        this.numeroLaFerrari = numeroLaFerrari;
-        this.numeroSf90Stradale = numeroSf90Stradale;
-        this.numeroTestarossa = numeroTestarossa;
+    public Catalogo(){
+        numeroLaFerrari = (int)(Math.random() * 6);
+        numeroSf90Stradale = (int)(Math.random() * 6);
+        numeroTestarossa = (int)(Math.random() * 6);
     }
 
     public void autoDisponibili(){

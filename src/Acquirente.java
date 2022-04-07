@@ -3,10 +3,11 @@ public class Acquirente extends Subject {
 	private int versione;
 	private int budget;
 	private String nome;
-	//private int choiceMethod;
 	private int cardNumber;
 	private int cvv;
 	private String IBAN;
+	private int indiceGradimento = 0;
+	private static Acquirente instance = null;
 	
 	
 	public Acquirente(int tipoAuto, int versione, int budget, String nome, int cardNumber, int cvv, String IBAN) {
@@ -14,10 +15,16 @@ public class Acquirente extends Subject {
 		this.versione = versione;
 		this.budget = budget;
 		this.nome = nome;
-		//this.choiceMethod = choiceMethod;
 		this.cardNumber = cardNumber;
 		this.cvv = cvv;
 		this.IBAN = IBAN;
+	}
+
+	// SINGLETON
+	public static Acquirente getInstance(int tipoAuto, int versione, int budget, String nome, int cardNumber, int cvv, String IBAN){
+		if(instance == null)
+			instance = new Acquirente(tipoAuto, versione, budget, nome, cardNumber, cvv, IBAN);
+		return instance;
 	}
 	
 	public void scegliMacchina(int tipo, int versione) {
@@ -100,7 +107,12 @@ public class Acquirente extends Subject {
 	public void setIBAN(String iBAN) {
 		IBAN = iBAN;
 	}
-	
 
-	
+	public int getIndiceGradimento() {
+		return indiceGradimento;
+	}
+
+	public void updateIndiceGradimento(int update) {
+		indiceGradimento += update;
+	}
 }
