@@ -1,3 +1,3 @@
 public interface Observer {
-	public void Update();
+	public void Update() throws InterruptedException;
 }

@@ -1,3 +1,3 @@
 public interface Testarossa {
-	public Testarossa create();
+	public Testarossa create() throws InterruptedException;
 }

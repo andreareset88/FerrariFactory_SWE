@@ -14,6 +14,7 @@ public class main {
 			int metodo = scanner.nextInt();
 			riv.setMethod(metodo);
 			acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
+			acq.calcolaPolizza(1050);
 		} else System.out.println(acq.getNome()+" non è interessato all'acuisto della vettura scelta.");
 		Thread.sleep(5000);
 		riv.pubblicizza();
@@ -25,16 +26,20 @@ public class main {
 			int metodo2 = scanner2.nextInt();
 			riv.setMethod(metodo2);
 			acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
+			acq.calcolaPolizza(900);
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
 		Thread.sleep(5000);
-		// TODO continua a pubblicizzare...
-		acq.setTipoAuto(2);
-		acq.setVersione(1);
-		System.out.println("Scegliere metodo di pagamento (0 per carta di credito, 1 per bonifico)");
-		Scanner scanner3 = new Scanner(System.in);
-		int metodo3 = scanner3.nextInt();
-		riv.setMethod(metodo3);
-		acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
+		riv.pubblicizza();
+		if(acq.getIndiceGradimento() >= 50) {
+			acq.setTipoAuto(2);
+			acq.setVersione(1);
+			System.out.println("Scegliere metodo di pagamento (0 per carta di credito, 1 per bonifico)");
+			Scanner scanner3 = new Scanner(System.in);
+			int metodo3 = scanner3.nextInt();
+			riv.setMethod(metodo3);
+			acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
+			acq.calcolaPolizza(470);
+		}
 	}
 }
 

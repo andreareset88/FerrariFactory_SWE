@@ -32,13 +32,13 @@ public class TestarossaDeluxe implements Testarossa {
 		}
 	}
 	
-	private void paga(PaymentStrategy paymentMethod) {
+	private void paga(PaymentStrategy paymentMethod) throws InterruptedException {
 		int amount = this.getPrice();
 		paymentMethod.pay(amount);
 	}
 	
 	@Override
-	public Testarossa create() {
+	public Testarossa create() throws InterruptedException {
 		if(catalogo.isTestarossa()) {
 			if (checkBudget()) {
 				paga(method);

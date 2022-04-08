@@ -14,13 +14,14 @@ public class CreditCardStrategy implements PaymentStrategy {
 	}
 	
 	@Override
-	public void pay(int amount) {
+	public void pay(int amount) throws InterruptedException {
 		System.out.println("Inserire cvv per la verifica");
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		int code = scanner.nextInt();
 		if(acq.getCvv() == code) {
 			System.out.println("Carta "+acq.getCardNumber()+" accettata, tentativo di pagamento in corso...");
+			Thread.sleep(3000);
 			int budget = acq.getBudget();
 			budget -= amount;
 			System.out.println("Pagamento di "+amount+" €, effettuato dal Sig. "+acq.getNome()+" riuscito, il budget rimanente è di "+budget+" €");

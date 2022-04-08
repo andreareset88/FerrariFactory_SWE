@@ -34,13 +34,13 @@ public final class LaFerrariDeluxe implements LaFerrari {
 		}
 	}
 	
-	public void paga(PaymentStrategy paymentMethod) {
+	public void paga(PaymentStrategy paymentMethod) throws InterruptedException {
 		int amount = this.getPrice();
 		paymentMethod.pay(amount);
 	}
 	
 	@Override
-	public LaFerrari create() {
+	public LaFerrari create() throws InterruptedException {
 		if(catalogo.isLaFerrari()) {
 			if (checkBudget()) {
 				paga(method);

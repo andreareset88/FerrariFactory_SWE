@@ -7,12 +7,12 @@ public abstract class Subject {
 		observers.add(o);
 	}
 	
-	public void Detach(Observer o) {
+	public void Detach(Observer o) throws InterruptedException {
 		observers.remove(o);
 		Notify();
 	}
 	
-	public void Notify() {
+	public void Notify() throws InterruptedException {
 		for (Observer observer : observers) {
 			observer.Update();
 		}

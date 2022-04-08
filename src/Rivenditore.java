@@ -28,13 +28,13 @@ public class Rivenditore implements Observer {
 	}
 
 	@Override
-	public void Update() {
+	public void Update() throws InterruptedException {
 		this.tipoAuto = acq.getTipoAuto();
 		this.versione = acq.getVersione();
 		createFactory();
 	}
 	
-	private void createFactory() {
+	private void createFactory() throws InterruptedException {
 		if(versione == 0)
 			factory = new StandardFactory(acq, method, catalogo);
 		else if(versione == 1)
@@ -76,6 +76,4 @@ public class Rivenditore implements Observer {
 		else 
 			method = new TransferStrategy(acq);
 	}
-
-	
 }

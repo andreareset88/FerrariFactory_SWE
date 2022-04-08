@@ -34,13 +34,13 @@ public class SF90StradaleStandard implements SF90Stradale {
 		}
 	}
 	
-	private void paga(PaymentStrategy paymentMethod) {
+	private void paga(PaymentStrategy paymentMethod) throws InterruptedException {
 		int amount = this.getPrice();
 		paymentMethod.pay(amount);
 	}
 	
 	@Override
-	public SF90Stradale create() {
+	public SF90Stradale create() throws InterruptedException {
 		if(catalogo.isSf90Stradale()) {
 			if (checkBudget()) {
 				paga(method);

@@ -27,7 +27,7 @@ public class Acquirente extends Subject {
 		return instance;
 	}
 	
-	public void scegliMacchina(int tipo, int versione) {
+	public void scegliMacchina(int tipo, int versione) throws InterruptedException {
 		tipoAuto = tipo;
 		this.versione = versione;
 		Notify();
@@ -50,6 +50,25 @@ public class Acquirente extends Subject {
 		if(version == 0)
 			return tr;
 		return tr+(int)(Math.random()*31);
+	}
+
+	public float calcolaPolizza(int cv){
+		float assicurazione  = 0;
+		float superBollo = 0;
+		if(cv >= 400 && cv < 700){
+			assicurazione = 6500;
+			superBollo = 7000;
+		} if(cv >= 700 && cv < 1000){
+			assicurazione = 7500;
+			superBollo = 8000;
+		} else if(cv >= 1000){
+			assicurazione = 9000;
+			superBollo = 10000;
+		}
+		float totaleAnnuo = assicurazione + superBollo;
+		System.out.println("Costo annuo: assicurazione = "+assicurazione+" €, super bollo = "+superBollo+" €, per un totale di "+totaleAnnuo+" €");
+		System.out.println("Costo mensile: assicurazione = "+assicurazione/12+" €, super bollo = "+superBollo/12+" €, per un totale di "+totaleAnnuo/12+" €/mese");
+		return totaleAnnuo;
 	}
 
 	public int getTipoAuto() {
@@ -112,7 +131,7 @@ public class Acquirente extends Subject {
 		return indiceGradimento;
 	}
 
-	public void updateIndiceGradimento(int update) {
-		indiceGradimento += update;
+	public void updateIndiceGradimento(int indiceGradimento) {
+		this.indiceGradimento = indiceGradimento;
 	}
 }

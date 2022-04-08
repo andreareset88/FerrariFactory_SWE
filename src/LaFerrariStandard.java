@@ -17,7 +17,7 @@ public final class LaFerrariStandard implements LaFerrari{
 		this.catalogo = catalogo;
 	}
 	
-	private void paga(PaymentStrategy paymentMethod) {
+	private void paga(PaymentStrategy paymentMethod) throws InterruptedException {
 		int amount = this.getPrice();
 		paymentMethod.pay(amount);
 	}
@@ -40,7 +40,7 @@ public final class LaFerrariStandard implements LaFerrari{
 	}
 	
 	@Override
-	public LaFerrari create() {
+	public LaFerrari create() throws InterruptedException {
 		if(catalogo.isLaFerrari()) {
 			if (checkBudget()) {
 				paga(method);
