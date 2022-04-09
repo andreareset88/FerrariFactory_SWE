@@ -7,6 +7,8 @@ public class Acquirente extends Subject {
 	private int cvv;
 	private String IBAN;
 	private int indiceGradimento = 0;
+	private int kmPercorsi = 0;
+	private int giorniPassati = 0;
 	private static Acquirente instance = null;
 	
 	
@@ -71,6 +73,23 @@ public class Acquirente extends Subject {
 		return totaleAnnuo;
 	}
 
+	public boolean checkRevisione(int giorniPassati, int kmPercorsi){
+		if(giorniPassati >= 1095 || kmPercorsi >= 20000){
+			System.out.println("E' necessario portare la vettura in officina per la revisione");
+			return true;
+		} else {
+			System.out.println("Non è ancora il momento per la revisione");
+			return false;
+		}
+	}
+
+	public void usaAuto(){
+		int giorni = (int)(Math.random() * 2001);
+		this.setGiorniPassati(giorni);
+		int km = (int)(Math.random() * 40001);
+		this.setKmPercorsi(km);
+	}
+
 	public int getTipoAuto() {
 		return tipoAuto;
 	}
@@ -133,5 +152,21 @@ public class Acquirente extends Subject {
 
 	public void updateIndiceGradimento(int indiceGradimento) {
 		this.indiceGradimento = indiceGradimento;
+	}
+
+	public int getKmPercorsi() {
+		return kmPercorsi;
+	}
+
+	public void setKmPercorsi(int kmPercorsi) {
+		this.kmPercorsi = kmPercorsi;
+	}
+
+	public int getGiorniPassati() {
+		return giorniPassati;
+	}
+
+	public void setGiorniPassati(int giorniPassati) {
+		this.giorniPassati = giorniPassati;
 	}
 }

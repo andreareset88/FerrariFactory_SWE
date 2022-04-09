@@ -14,8 +14,11 @@ public class main {
 			int metodo = scanner.nextInt();
 			riv.setMethod(metodo);
 			acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
-			if(cat.getNumeroSf90Stradale() > 0)
+			if(cat.getNumeroSf90Stradale() > 0) {
 				acq.calcolaPolizza(1050);
+				acq.usaAuto();
+				acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()); // TODO controlla se meglio boolean o void
+			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acuisto della vettura scelta.");
 		Thread.sleep(5000);
 		riv.pubblicizza();
