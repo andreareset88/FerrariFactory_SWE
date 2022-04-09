@@ -17,7 +17,8 @@ public class main {
 			if(cat.getNumeroSf90Stradale() > 0) {
 				acq.calcolaPolizza(1050);
 				acq.usaAuto();
-				acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()); // TODO controlla se meglio boolean o void
+				if(acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
+					riv.effettuaRevisione(); // TODO continua revisione...
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acuisto della vettura scelta.");
 		Thread.sleep(5000);

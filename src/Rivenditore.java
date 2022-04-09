@@ -62,6 +62,14 @@ public class Rivenditore implements Observer {
 		System.out.println("SPOT TERMINATO");
 	}
 
+	public void effettuaRevisione() throws InterruptedException {
+		System.out.println("Revisione in corso...");
+		Thread.sleep(10000);
+		acq.setGiorniPassati(0);
+		acq.setKmPercorsi(0);
+		System.out.println("Revisione completata!");
+	}
+
 	public int getTipoAuto() {
 		return tipoAuto;
 	}

@@ -73,7 +73,7 @@ public class Acquirente extends Subject {
 		return totaleAnnuo;
 	}
 
-	public boolean checkRevisione(int giorniPassati, int kmPercorsi){
+	public boolean checkRevisione(int giorniPassati, int kmPercorsi) throws InterruptedException {
 		if(giorniPassati >= 1095 || kmPercorsi >= 20000){
 			System.out.println("E' necessario portare la vettura in officina per la revisione");
 			return true;
@@ -169,4 +169,5 @@ public class Acquirente extends Subject {
 	public void setGiorniPassati(int giorniPassati) {
 		this.giorniPassati = giorniPassati;
 	}
+
 }
