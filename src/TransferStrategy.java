@@ -1,11 +1,7 @@
 public class TransferStrategy implements PaymentStrategy {
-	//private String IBAN;
-	//private String owner;
 	private Acquirente acq;
 	
 	public TransferStrategy(Acquirente acq) {
-		//this.IBAN = IBAN;
-		//this.owner = owner;
 		this.acq = acq;
 	}
 

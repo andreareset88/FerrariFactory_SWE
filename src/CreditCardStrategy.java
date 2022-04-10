@@ -2,15 +2,9 @@ import java.util.Scanner;
 
 public class CreditCardStrategy implements PaymentStrategy {
 	private Acquirente acq;
-	// private int cardNumber;
-	// private Date dateOfExpiry;
-	// private int cvv;
 	
 	public CreditCardStrategy(Acquirente acq) {
 		this.acq = acq;
-		// this.cardNumber = cardNumber;
-		// this.dateOfExpiry = dateOfExpiry;
-		// this.cvv = cvv;
 	}
 	
 	@Override
