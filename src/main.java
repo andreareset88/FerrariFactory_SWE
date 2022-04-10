@@ -18,7 +18,7 @@ public class main {
 				acq.calcolaPolizza(1050);
 				acq.usaAuto();
 				if(acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
-					riv.effettuaRevisione(); // TODO continua revisione...
+					riv.effettuaRevisione();
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acuisto della vettura scelta.");
 		Thread.sleep(5000);
@@ -32,8 +32,12 @@ public class main {
 			int metodo2 = scanner2.nextInt();
 			riv.setMethod(metodo2);
 			acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
-			if(cat.getNumeroLaFerrari() > 0)
+			if(cat.getNumeroLaFerrari() > 0) {
 				acq.calcolaPolizza(900);
+				acq.usaAuto();
+				if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
+					riv.effettuaRevisione();
+			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
 		Thread.sleep(5000);
 		riv.pubblicizza();
@@ -46,9 +50,13 @@ public class main {
 			int metodo3 = scanner3.nextInt();
 			riv.setMethod(metodo3);
 			acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
-			if(cat.getNumeroTestarossa() > 0)
+			if(cat.getNumeroTestarossa() > 0) {
 				acq.calcolaPolizza(470);
-		}
+				acq.usaAuto();
+				if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
+					riv.effettuaRevisione();
+			}
+		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
 	}
 }
 
