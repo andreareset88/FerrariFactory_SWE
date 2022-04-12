@@ -21,7 +21,7 @@ public class main {
 				if(acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
 					riv.effettuaRevisione();
 			}
-		} else System.out.println(acq.getNome()+" non è interessato all'acuisto della vettura scelta.");
+		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
 		Thread.sleep(5000);
 		riv.pubblicizza();
 		if(acq.getIndiceGradimento() >= 50) {
