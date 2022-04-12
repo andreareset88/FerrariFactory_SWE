@@ -5,6 +5,7 @@ public class main {
 	public static void main(String[] args) throws InterruptedException {
 
 		Catalogo cat = new Catalogo();
+		// Acquirente inizializzato con SF90 Stradale deluxe
 		Acquirente acq = Acquirente.getInstance(1, 1, 15000000, "Charles", 789543, 997, "MN654GH");
 		Rivenditore riv = Rivenditore.getInstance(acq, null, cat);
 		riv.pubblicizza();
