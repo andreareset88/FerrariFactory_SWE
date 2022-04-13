@@ -7,6 +7,7 @@ public class Catalogo {
         numeroLaFerrari = (int)(Math.random() * 6);
         numeroSf90Stradale = (int)(Math.random() * 6);
         numeroTestarossa = (int)(Math.random() * 6);
+        this.autoDisponibili();
     }
 
     public void autoDisponibili(){
@@ -56,5 +57,17 @@ public class Catalogo {
 
     public int getNumeroTestarossa() {
         return numeroTestarossa;
+    }
+
+    public void setNumeroLaFerrari(int numeroLaFerrari) {
+        this.numeroLaFerrari = numeroLaFerrari;
+    }
+
+    public void setNumeroSf90Stradale(int numeroSf90Stradale) {
+        this.numeroSf90Stradale = numeroSf90Stradale;
+    }
+
+    public void setNumeroTestarossa(int numeroTestarossa) {
+        this.numeroTestarossa = numeroTestarossa;
     }
 }

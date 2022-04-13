@@ -17,7 +17,6 @@ public class Rivenditore implements Observer {
 		this.acq.Attach(this);
 		this.method = method;
 		this.catalogo = catalogo;
-		catalogo.autoDisponibili();
 	}
 	
 	// SINGLETON
@@ -39,7 +38,6 @@ public class Rivenditore implements Observer {
 			factory = new StandardFactory(acq, method, catalogo);
 		else if(versione == 1)
 			factory = new DeluxeFactory(acq, method, catalogo);
-		else System.out.println("ERROR, select 0 or 1!");
 		if(tipoAuto == 0) {
 			laferrari = factory.createLaFerrari();
 			laferrari.create();
@@ -52,7 +50,6 @@ public class Rivenditore implements Observer {
 			testarossa = factory.createTestarossa();
 			testarossa.create();
 		}
-		//else System.out.println("ERROR, select 0, 1 or 2!");
 	}
 
 	public void pubblicizza() throws InterruptedException {
