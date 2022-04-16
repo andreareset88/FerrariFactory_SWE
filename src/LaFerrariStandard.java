@@ -21,28 +21,12 @@ public final class LaFerrariStandard implements LaFerrari{
 		int amount = this.getPrice();
 		paymentMethod.pay(amount);
 	}
-	
-	private boolean checkBudget() {
-		int budget = acq.getBudget();
-		System.out.println("Controllo budget acquirente in corso...");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		if(budget >= this.getPrice()) {
-			System.out.println(acq.getNome()+" è abilitato all'acquisto!");
-			return true;
-		} else {
-			System.out.println("ERRORE, budget troppo basso, "+acq.getNome()+" non può procedere all'acquisto..");
-			return false;
-		}
-	}
+
 	
 	@Override
 	public LaFerrari create() throws InterruptedException {
 		if(catalogo.isLaFerrari()) {
-			if (checkBudget()) {
+			if (ControlloBudget.checkBudget(this.getPrice())) {
 				paga(method);
 				System.out.println("E' in corso l'invio dell'ordine alla fabbrica per la LaFerrari...");
 				try {

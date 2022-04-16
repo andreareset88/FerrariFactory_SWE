@@ -14,23 +14,7 @@ public class TestarossaStandard implements Testarossa {
 		this.method = method;
 		this.catalogo = catalogo;
 	}
-	
-	private boolean checkBudget() {
-		int budget = acq.getBudget();
-		System.out.println("Controllo budget acquirente in corso...");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		if(budget >= price) {
-			System.out.println(acq.getNome()+" è abilitato all'acquisto!");
-			return true;
-		} else {
-			System.out.println("ERRORE, budget troppo basso, "+acq.getNome()+" non pu� procedere all'acquisto..");
-			return false;
-		}
-	}
+
 	
 	private void paga(PaymentStrategy paymentMethod) throws InterruptedException {
 		int amount = this.getPrice();
@@ -40,7 +24,7 @@ public class TestarossaStandard implements Testarossa {
 	@Override
 	public Testarossa create() throws InterruptedException {
 		if(catalogo.isTestarossa()) {
-			if (checkBudget()) {
+			if (ControlloBudget.checkBudget(this.getPrice())) {
 				paga(method);
 				System.out.println("Invio dell'ordine alla fabbrica per la Testarossa...");
 				try {

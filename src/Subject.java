@@ -7,9 +7,8 @@ public abstract class Subject {
 		observers.add(o);
 	}
 	
-	public void Detach(Observer o) throws InterruptedException {
+	public void Detach(Observer o) {
 		observers.remove(o);
-		Notify();
 	}
 	
 	public void Notify() throws InterruptedException {

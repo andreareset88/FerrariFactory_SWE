@@ -8,6 +8,7 @@ public class main {
 		// Acquirente inizializzato con SF90 Stradale deluxe
 		Acquirente acq = Acquirente.getInstance(1, 1, 15000000, "Charles", 789543, 997, "MN654GH");
 		Rivenditore riv = Rivenditore.getInstance(acq, null, cat);
+		ControlloBudget.setAcq(acq);
 		riv.pubblicizza();
 		if(acq.getIndiceGradimento() > 50) {
 			System.out.println("Scegliere metodo di pagamento (0 per carta di credito, 1 per bonifico)");

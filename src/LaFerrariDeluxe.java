@@ -6,6 +6,7 @@ public final class LaFerrariDeluxe implements LaFerrari {
 	private Acquirente acq;
 	private PaymentStrategy method;
 	private Catalogo catalogo;
+
 	
 	public LaFerrariDeluxe(int hp, boolean satNav, boolean leatherWheel, int price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
@@ -16,23 +17,7 @@ public final class LaFerrariDeluxe implements LaFerrari {
 		this.method = method;
 		this.catalogo = catalogo;
 	}
-	
-	private boolean checkBudget() {
-		int budget = acq.getBudget();
-		System.out.println("Controllo budget acquirente in corso...");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		if(budget >= this.getPrice()) {
-			System.out.println(acq.getNome()+" è abilitato all'acquisto!");
-			return true;
-		} else {
-			System.out.println("ERRORE, budget troppo basso, "+acq.getNome()+" non può procedere all'acquisto..");
-			return false;
-		}
-	}
+
 	
 	public void paga(PaymentStrategy paymentMethod) throws InterruptedException {
 		int amount = this.getPrice();
@@ -42,7 +27,7 @@ public final class LaFerrariDeluxe implements LaFerrari {
 	@Override
 	public LaFerrari create() throws InterruptedException {
 		if(catalogo.isLaFerrari()) {
-			if (checkBudget()) {
+			if (ControlloBudget.checkBudget(this.getPrice())) {
 				paga(method);
 				System.out.println("E' in corso l'invio dell'ordine alla fabbrica per la LaFerrari...");
 				try {
