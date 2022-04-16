@@ -19,6 +19,8 @@ public class main {
 				cat.setNumeroSf90Stradale(cat.getNumeroSf90Stradale() - 1);
 				acq.calcolaPolizza(1050);
 				acq.usaAuto();
+				Thread.sleep(5000);
+				System.out.println("Sono passati "+acq.getGiorniPassati()+" giorni e sono stati percorsi "+acq.getKmPercorsi()+" km dalla data dell'acquisto");
 				if(acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
 					riv.effettuaRevisione();
 				cat.autoDisponibili();
@@ -39,6 +41,8 @@ public class main {
 				cat.setNumeroLaFerrari(cat.getNumeroLaFerrari() - 1);
 				acq.calcolaPolizza(900);
 				acq.usaAuto();
+				Thread.sleep(5000);
+				System.out.println("Sono passati "+acq.getGiorniPassati()+" giorni e sono stati percorsi "+acq.getKmPercorsi()+" km dalla data dell'acquisto");
 				if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
 					riv.effettuaRevisione();
 				cat.autoDisponibili();
@@ -59,11 +63,14 @@ public class main {
 				cat.setNumeroTestarossa(cat.getNumeroTestarossa() - 1);
 				acq.calcolaPolizza(470);
 				acq.usaAuto();
+				Thread.sleep(5000);
+				System.out.println("Sono passati "+acq.getGiorniPassati()+" giorni e sono stati percorsi "+acq.getKmPercorsi()+" km dalla data dell'acquisto");
 				if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
 					riv.effettuaRevisione();
 				cat.autoDisponibili();
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
+		acq.Detach(riv);
 	}
 }
 
