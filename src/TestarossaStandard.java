@@ -1,12 +1,12 @@
 public class TestarossaStandard implements Testarossa {
 	private int hp;
 	private boolean spareWheel;
-	private int price;
+	private float price;
 	private Acquirente acq;
 	private PaymentStrategy method;
 	private Catalogo catalogo;
 	
-	public TestarossaStandard(int hp, boolean spareWheel, int price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
+	public TestarossaStandard(int hp, boolean spareWheel, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
 		this.spareWheel = spareWheel;
 		this.price = price;
@@ -17,7 +17,7 @@ public class TestarossaStandard implements Testarossa {
 
 	
 	private void paga(PaymentStrategy paymentMethod) throws InterruptedException {
-		int amount = this.getPrice();
+		float amount = this.getPrice();
 		paymentMethod.pay(amount);
 	}
 	
@@ -56,7 +56,7 @@ public class TestarossaStandard implements Testarossa {
 	public void setSpareWheel(boolean spareWheel) {
 		this.spareWheel = spareWheel;
 	}
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
 	public Acquirente getAcquirente() {

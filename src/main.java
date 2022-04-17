@@ -6,7 +6,7 @@ public class main {
 
 		Catalogo cat = new Catalogo();
 		// Acquirente inizializzato con SF90 Stradale deluxe
-		Acquirente acq = Acquirente.getInstance(1, 1, 15000000, "Charles", 789543, 997, "MN654GH");
+		Acquirente acq = Acquirente.getInstance(1, 1, 7500000, "Charles", 789543, 997, "MN654GH");
 		Rivenditore riv = Rivenditore.getInstance(acq, null, cat);
 		ControlloBudget.setAcq(acq);
 		riv.pubblicizza();
@@ -18,13 +18,15 @@ public class main {
 			acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
 			if(cat.getNumeroSf90Stradale() > 0) {
 				cat.setNumeroSf90Stradale(cat.getNumeroSf90Stradale() - 1);
-				acq.calcolaPolizza(1050);
-				acq.usaAuto();
-				Thread.sleep(5000);
-				System.out.println("Sono passati "+acq.getGiorniPassati()+" giorni e sono stati percorsi "+acq.getKmPercorsi()+" km dalla data dell'acquisto");
-				if(acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
-					riv.effettuaRevisione();
-				cat.autoDisponibili();
+				float polizza = acq.calcolaPolizza(1050);
+				if (!acq.cancellaOrdine(polizza)) {
+					acq.usaAuto();
+					Thread.sleep(5000);
+					System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
+					if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
+						riv.effettuaRevisione();
+					cat.autoDisponibili();
+				} else System.out.println(" Polizza troppo alta, ordine annullato...");
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
 		Thread.sleep(5000);
@@ -40,13 +42,15 @@ public class main {
 			acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
 			if(cat.getNumeroLaFerrari() > 0) {
 				cat.setNumeroLaFerrari(cat.getNumeroLaFerrari() - 1);
-				acq.calcolaPolizza(900);
-				acq.usaAuto();
-				Thread.sleep(5000);
-				System.out.println("Sono passati "+acq.getGiorniPassati()+" giorni e sono stati percorsi "+acq.getKmPercorsi()+" km dalla data dell'acquisto");
-				if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
-					riv.effettuaRevisione();
-				cat.autoDisponibili();
+				float polizza = acq.calcolaPolizza(900);
+				if(!acq.cancellaOrdine(polizza)) {
+					acq.usaAuto();
+					Thread.sleep(5000);
+					System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
+					if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
+						riv.effettuaRevisione();
+					cat.autoDisponibili();
+				} else System.out.println(" Polizza troppo alta, ordine annullato...");
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
 		Thread.sleep(5000);
@@ -62,13 +66,15 @@ public class main {
 			acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
 			if(cat.getNumeroTestarossa() > 0) {
 				cat.setNumeroTestarossa(cat.getNumeroTestarossa() - 1);
-				acq.calcolaPolizza(470);
-				acq.usaAuto();
-				Thread.sleep(5000);
-				System.out.println("Sono passati "+acq.getGiorniPassati()+" giorni e sono stati percorsi "+acq.getKmPercorsi()+" km dalla data dell'acquisto");
-				if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
-					riv.effettuaRevisione();
-				cat.autoDisponibili();
+				float polizza = acq.calcolaPolizza(470);
+				if(!acq.cancellaOrdine(polizza)) {
+					acq.usaAuto();
+					Thread.sleep(5000);
+					System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
+					if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
+						riv.effettuaRevisione();
+					cat.autoDisponibili();
+				}  else System.out.println(" Polizza troppo alta, ordine annullato...");
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
 		acq.Detach(riv);

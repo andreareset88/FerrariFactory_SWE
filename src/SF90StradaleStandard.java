@@ -2,12 +2,12 @@ public class SF90StradaleStandard implements SF90Stradale {
 	private int hp;
 	private boolean satNav = false;
 	private boolean leatherWheel = false;
-	private int price;
+	private float price;
 	private Acquirente acq;
 	private PaymentStrategy method;
 	private Catalogo catalogo;
 	
-	public SF90StradaleStandard(int hp, boolean satNav, boolean leatherWheel, int price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
+	public SF90StradaleStandard(int hp, boolean satNav, boolean leatherWheel, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
 		this.satNav = satNav;
 		this.leatherWheel = leatherWheel;
@@ -19,7 +19,7 @@ public class SF90StradaleStandard implements SF90Stradale {
 
 	
 	private void paga(PaymentStrategy paymentMethod) throws InterruptedException {
-		int amount = this.getPrice();
+		float amount = this.getPrice();
 		paymentMethod.pay(amount);
 	}
 	
@@ -62,7 +62,7 @@ public class SF90StradaleStandard implements SF90Stradale {
 	public void setLeatherWheel(boolean leatherWheel) {
 		this.leatherWheel = leatherWheel;
 	}
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
 	public Acquirente getAcquirente() {

@@ -1,7 +1,7 @@
 public class Acquirente extends Subject {
 	private int tipoAuto;
 	private int versione;
-	private int budget;
+	private float budget;
 	private String nome;
 	private int cardNumber;
 	private int cvv;
@@ -12,7 +12,7 @@ public class Acquirente extends Subject {
 	private static Acquirente instance = null;
 	
 	
-	public Acquirente(int tipoAuto, int versione, int budget, String nome, int cardNumber, int cvv, String IBAN) {
+	public Acquirente(int tipoAuto, int versione, float budget, String nome, int cardNumber, int cvv, String IBAN) {
 		this.tipoAuto = tipoAuto;
 		this.versione = versione;
 		this.budget = budget;
@@ -23,7 +23,7 @@ public class Acquirente extends Subject {
 	}
 
 	// SINGLETON
-	public static Acquirente getInstance(int tipoAuto, int versione, int budget, String nome, int cardNumber, int cvv, String IBAN){
+	public static Acquirente getInstance(int tipoAuto, int versione, float budget, String nome, int cardNumber, int cvv, String IBAN){
 		if(instance == null)
 			instance = new Acquirente(tipoAuto, versione, budget, nome, cardNumber, cvv, IBAN);
 		return instance;
@@ -90,6 +90,13 @@ public class Acquirente extends Subject {
 		this.setKmPercorsi(km);
 	}
 
+	// Se il costo della polizza supera il 50% del budget, annulla l'ordine
+	public boolean cancellaOrdine(float polizza){
+		float perc = (polizza * 100) / (this.getBudget());
+		System.out.println("La polizza annua rappresenta il "+perc+" % del budget");
+		return perc >= 50;
+	}
+
 	public int getTipoAuto() {
 		return tipoAuto;
 	}
@@ -98,7 +105,7 @@ public class Acquirente extends Subject {
 		return versione;
 	}
 
-	public int getBudget() {
+	public float getBudget() {
 		return budget;
 	}
 
@@ -126,7 +133,7 @@ public class Acquirente extends Subject {
 		this.versione = versione;
 	}
 
-	public void setBudget(int budget) {
+	public void setBudget(float budget) {
 		this.budget = budget;
 	}
 

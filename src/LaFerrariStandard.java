@@ -2,12 +2,12 @@ public final class LaFerrariStandard implements LaFerrari{
 	private int hp;
 	private boolean satNav = false;
 	private boolean leatherWheel = false;
-	private int price;
+	private float price;
 	private Acquirente acq;
 	private PaymentStrategy method;
 	private Catalogo catalogo;
 	
-	public LaFerrariStandard(int hp, boolean satNav, boolean leatherWheel, int price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
+	public LaFerrariStandard(int hp, boolean satNav, boolean leatherWheel, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
 		this.satNav = satNav;
 		this.leatherWheel = leatherWheel;
@@ -18,7 +18,7 @@ public final class LaFerrariStandard implements LaFerrari{
 	}
 	
 	private void paga(PaymentStrategy paymentMethod) throws InterruptedException {
-		int amount = this.getPrice();
+		float amount = this.getPrice();
 		paymentMethod.pay(amount);
 	}
 
@@ -62,7 +62,7 @@ public final class LaFerrariStandard implements LaFerrari{
 		return leatherWheel;
 	}
 	
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
 	

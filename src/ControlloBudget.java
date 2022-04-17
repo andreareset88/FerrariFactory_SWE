@@ -1,8 +1,8 @@
 public class ControlloBudget {
     private static Acquirente acq;
 
-    public static boolean checkBudget(int price){
-        int budget = acq.getBudget();
+    public static boolean checkBudget(float price){
+        float budget = acq.getBudget();
         System.out.println("Controllo budget acquirente in corso...");
         try {
             Thread.sleep(2000);
