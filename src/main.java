@@ -15,6 +15,7 @@ public class main {
 			Scanner scanner = new Scanner(System.in);
 			int metodo = scanner.nextInt();
 			riv.setMethod(metodo);
+			// Qui entrano in gioco Abstract Factory e Observer
 			acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
 			if(cat.getNumeroSf90Stradale() > 0) {
 				cat.setNumeroSf90Stradale(cat.getNumeroSf90Stradale() - 1);
