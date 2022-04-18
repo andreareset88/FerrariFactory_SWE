@@ -4,6 +4,7 @@ public class Rivenditore implements Observer {
 	private Acquirente acq;
 	private int tipoAuto;
 	private int versione;
+	private float profitto = 0;
 	private AbstractFactory factory;
 	private LaFerrari laferrari;
 	private SF90Stradale sf90stradale;
@@ -74,11 +75,29 @@ public class Rivenditore implements Observer {
 	public int getVersione() {
 		return versione;
 	}
-	
+
+	public void aggiornaProfitto(float euro){
+		float guadagno = this.getProfitto();
+		guadagno += euro;
+		this.setProfitto(guadagno);
+	}
+
+	public void setProfitto(float profitto){
+		this.profitto = profitto;
+	}
+	public float getProfitto(){
+		return profitto;
+	}
 	public void setMethod(int metodo) {
 		if(metodo == 0)
-			method = new CreditCardStrategy(acq);
+			method = new CreditCardStrategy(acq, this);
 		else 
-			method = new TransferStrategy(acq);
+			method = new TransferStrategy(acq, this);
+	}
+
+	public void mostraResoconto(int autoVendute){
+		System.out.println("RIEPILOGO DELL'AFFARE CON IL SIG."+acq.getNome()+" :");
+		System.out.print("Numero di auto vendute: "+autoVendute);
+		System.out.print(", guadagno totale: "+this.getProfitto()+" €.");
 	}
 }

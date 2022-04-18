@@ -2,9 +2,12 @@ import java.util.Scanner;
 
 public class CreditCardStrategy implements PaymentStrategy {
 	private Acquirente acq;
+
+	private Rivenditore riv;
 	
-	public CreditCardStrategy(Acquirente acq) {
+	public CreditCardStrategy(Acquirente acq, Rivenditore riv) {
 		this.acq = acq;
+		this.riv = riv;
 	}
 	
 	@Override
@@ -22,8 +25,9 @@ public class CreditCardStrategy implements PaymentStrategy {
 				Thread.sleep(3000);
 				float budget = acq.getBudget();
 				budget -= amount;
-				System.out.println("Pagamento di " + amount + " €, effettuato dal Sig. " + acq.getNome() + " riuscito, il budget rimanente è di " + budget + " €");
 				acq.setBudget(budget);
+				riv.aggiornaProfitto(amount);
+				System.out.println("Pagamento di " + amount + " €, effettuato dal Sig. " + acq.getNome() + " riuscito, il budget rimanente è di " + budget + " €");
 			} else {
 				System.out.println("Il codice cvv non è corretto");
 				tentativiRimanenti--;
