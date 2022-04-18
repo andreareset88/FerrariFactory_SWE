@@ -58,14 +58,14 @@ public class Acquirente extends Subject {
 		float assicurazione  = 0;
 		float superBollo = 0;
 		if(cv >= 400 && cv < 700){
-			assicurazione = 6500;
-			superBollo = 7000;
+			assicurazione = 8000;
+			superBollo = 9000;
 		} if(cv >= 700 && cv < 1000){
-			assicurazione = 7500;
-			superBollo = 8000;
+			assicurazione = 10000;
+			superBollo = 11000;
 		} else if(cv >= 1000){
-			assicurazione = 9000;
-			superBollo = 10000;
+			assicurazione = 11500;
+			superBollo = 12000;
 		}
 		float totaleAnnuo = assicurazione + superBollo;
 		System.out.println("Costo annuo: assicurazione = "+assicurazione+" €, super bollo = "+superBollo+" €, per un totale di "+totaleAnnuo+" €");
@@ -90,11 +90,11 @@ public class Acquirente extends Subject {
 		this.setKmPercorsi(km);
 	}
 
-	// Se il costo della polizza supera il 50% del budget, annulla l'ordine
+	// Se il costo della polizza supera il 40% del budget, annulla l'ordine
 	public boolean cancellaOrdine(float polizza){
 		float perc = (polizza * 100) / (this.getBudget());
 		System.out.println("La polizza annua rappresenta il "+perc+" % del budget");
-		return perc >= 50;
+		return perc >= 40;
 	}
 
 	public int getTipoAuto() {
