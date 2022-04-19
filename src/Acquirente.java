@@ -12,7 +12,7 @@ public class Acquirente extends Subject {
 	private static Acquirente instance = null;
 	
 	
-	public Acquirente(int tipoAuto, int versione, float budget, String nome, int cardNumber, int cvv, String IBAN) {
+	private Acquirente(int tipoAuto, int versione, float budget, String nome, int cardNumber, int cvv, String IBAN) {
 		this.tipoAuto = tipoAuto;
 		this.versione = versione;
 		this.budget = budget;
