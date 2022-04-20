@@ -57,7 +57,7 @@ public class Acquirente extends Subject {
 	public float calcolaPolizza(int cv){
 		float assicurazione  = 0;
 		float superBollo = 0;
-		if(cv >= 400 && cv < 700){
+		if(cv >= 0 && cv < 700){
 			assicurazione = 8000;
 			superBollo = 9000;
 		} if(cv >= 700 && cv < 1000){
