@@ -37,6 +37,11 @@ public class RivenditoreTest {
         assertEquals("Calcolo profitto non corretto", riv.aggiornaProfitto(2000000), 2000450, 0.0);
     }
 
+    @Test
+    public void pubblicizzaEIndiceGradimentoTra0e100() throws InterruptedException {
+        assertTrue("Percentuale di gradimento incorretta", riv.pubblicizza() >= 0 && riv.pubblicizza() <= 100);
+    }
+
     @After
     public void tearDown() throws Exception {
         acq = null;

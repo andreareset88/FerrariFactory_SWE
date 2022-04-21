@@ -53,11 +53,14 @@ public class Rivenditore implements Observer {
 		}
 	}
 
-	public void pubblicizza() throws InterruptedException {
+	public int pubblicizza() throws InterruptedException {
 		System.out.println("SPOT PUBBLICITARIO IN TRASMISSIONE...");
-		acq.updateIndiceGradimento((int)(Math.random() * 101));
+		int gradimento = (int)(Math.random() * 101);
+		acq.updateIndiceGradimento(gradimento);
 		Thread.sleep(5000);
 		System.out.println("SPOT TERMINATO");
+		System.out.println(acq.getNome()+" ha un indice di gradimento del "+gradimento+" %");
+		return gradimento;
 	}
 
 	public void effettuaRevisione() throws InterruptedException {

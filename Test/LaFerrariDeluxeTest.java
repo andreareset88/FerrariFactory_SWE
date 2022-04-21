@@ -1,17 +1,17 @@
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class LaFerrariDeluxeTest {
-    private Acquirente acq;
-    private Catalogo cat;
-    private Rivenditore riv;
-    private LaFerrariDeluxe laferrari;
+    private static Acquirente acq;
+    private static Catalogo cat;
+    private static Rivenditore riv;
+    private static LaFerrariDeluxe laferrari;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeClass
+    public static void initialize() {
         acq = Acquirente.getInstance(0,1,6000000, "Charles", 98765, 889, "MN789GH");
         ControlloBudget.setAcq(acq);
         cat = new Catalogo();
@@ -25,8 +25,14 @@ public class LaFerrariDeluxeTest {
         assertNotNull("LaFerrari Deluxe non creata", laferrari.create());
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @Test
+    public void nonCreareSeBudgetTroppoBasso() throws InterruptedException {
+        acq.setBudget(1000000);
+        assertNull("Oggetto creato anche se budget troppo basso", laferrari.create());
+    }
+
+    @AfterClass
+    public static void tearDown() {
         acq = null;
         cat = null;
         riv = null;
