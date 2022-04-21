@@ -61,13 +61,16 @@ public class Catalogo {
 
     public void setNumeroLaFerrari(int numeroLaFerrari) {
         this.numeroLaFerrari = numeroLaFerrari;
+        System.out.println("Numero di LaFerrari impostato a "+numeroLaFerrari);
     }
 
     public void setNumeroSf90Stradale(int numeroSf90Stradale) {
         this.numeroSf90Stradale = numeroSf90Stradale;
+        System.out.println("Numero di SF90 Stradale impostato a "+numeroSf90Stradale);
     }
 
     public void setNumeroTestarossa(int numeroTestarossa) {
         this.numeroTestarossa = numeroTestarossa;
+        System.out.println("Numero di Testarossa impostato a "+numeroTestarossa);
     }
 }

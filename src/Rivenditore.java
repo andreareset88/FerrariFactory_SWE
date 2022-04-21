@@ -76,10 +76,11 @@ public class Rivenditore implements Observer {
 		return versione;
 	}
 
-	public void aggiornaProfitto(float euro){
+	public float aggiornaProfitto(float euro){
 		float guadagno = this.getProfitto();
 		guadagno += euro;
 		this.setProfitto(guadagno);
+		return guadagno;
 	}
 
 	public void setProfitto(float profitto){
