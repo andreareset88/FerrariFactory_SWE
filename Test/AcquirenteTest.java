@@ -1,20 +1,23 @@
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import static org.junit.Assert.*;
 
 public class AcquirenteTest {
-    private Acquirente acq;
+    private static Acquirente acq;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeClass
+    public static void initialize() {
         acq = Acquirente.getInstance(1,1, 7500000, "Charles", 789543, 997, "MN654GH");
         assertNotNull("Acquirente non inizializzato", acq);
     }
 
+    @Before
+    public void setUp() throws Exception {
+        acq.setTipoAuto(1);
+        acq.setVersione(1);
+        assertNotNull("Acquirente non inizializzato", acq);
+    }
     @Test
     public void attesaSF90DeluxeMaggioreUguale75(){
         assertTrue("Tempo di attesa non corretto", acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione()) >= 75);
@@ -35,17 +38,16 @@ public class AcquirenteTest {
         acq.setKmPercorsi(5000);
         assertTrue("Richiamo revisione errato", acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()));
         acq.setGiorniPassati(1000); // Con 1000 giorni e 5000 km non è tempo di revisione
-        assertTrue("Richiamo revisione errato", acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()));
+        assertFalse("Richiamo revisione errato", acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()));
     }
 
     @Test
     public void cancellaOrdineSeMaggiore40PercentoBudget(){
-        assertTrue("Ordine cancellato anche se costo rientra nella soglia", acq.cancellaOrdine(acq.calcolaPolizza(1050)));
+        assertFalse("Ordine cancellato anche se costo rientra nella soglia", acq.cancellaOrdine(acq.calcolaPolizza(1050)));
         assertTrue("Oridne non cancellato se costo troppo alto", acq.cancellaOrdine(5000000));
     }
-    @After
-    public void tearDown() throws Exception {
+    @AfterClass
+    public static void deallocate() {
         acq = null;
-        assertNull(acq);
     }
 }
