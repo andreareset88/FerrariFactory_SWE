@@ -1,13 +1,16 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class main {
 	
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 
 		Catalogo cat = new Catalogo();
 		// Acquirente inizializzato con SF90 Stradale deluxe
 		Acquirente acq = Acquirente.getInstance(1, 1, 7500000, "Charles", 789543, 997, "MN654GH");
 		Rivenditore riv = Rivenditore.getInstance(acq, null, cat);
+		MostraAuto gestore = new MostraAuto(riv);
+		gestore.setRiv();
 		int autoVendute = 0;
 		ControlloBudget.setAcq(acq);
 		riv.pubblicizza();
@@ -91,7 +94,7 @@ public class main {
 				}
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
-		acq.Detach(riv);
+		acq.detach(riv);
 		riv.mostraResoconto(autoVendute);
 	}
 }

@@ -1,19 +1,20 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class Subject {
 	private ArrayList<Observer> observers = new ArrayList<>();
 	
-	public void Attach(Observer o) {
+	public void attach(Observer o) {
 		observers.add(o);
 	}
 	
-	public void Detach(Observer o) {
+	public void detach(Observer o) {
 		observers.remove(o);
 	}
 	
-	public void Notify() throws InterruptedException {
+	public void Notify() throws InterruptedException, IOException {
 		for (Observer observer : observers) {
-			observer.Update();
+			observer.update();
 		}
 	}
 }

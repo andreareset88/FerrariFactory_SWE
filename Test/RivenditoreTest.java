@@ -28,7 +28,7 @@ public class RivenditoreTest {
         cat.setNumeroLaFerrari(3);
         assertTrue("LaFerrari non disponibile", cat.isLaFerrari());
         cat.setNumeroSf90Stradale(0);
-        assertTrue("SF90 Stradale non disponibile", cat.isSf90Stradale());
+        assertFalse("SF90 Stradale non disponibile", cat.isSf90Stradale());
     }
 
     @Test

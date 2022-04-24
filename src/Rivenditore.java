@@ -1,10 +1,14 @@
 // Voglio che venga istanziato solo un rivenditore, uso il singleton pattern...
 
-public class Rivenditore implements Observer {
+import java.io.IOException;
+
+public class Rivenditore extends Subject implements Observer {
 	private Acquirente acq;
 	private int tipoAuto;
 	private int versione;
 	private float profitto = 0;
+
+	private int autoScelta = 0;
 	private AbstractFactory factory;
 	private LaFerrari laferrari;
 	private SF90Stradale sf90stradale;
@@ -15,7 +19,7 @@ public class Rivenditore implements Observer {
 	
 	private Rivenditore(Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.acq = acq;
-		this.acq.Attach(this);
+		this.acq.attach(this);
 		this.method = method;
 		this.catalogo = catalogo;
 	}
@@ -28,10 +32,11 @@ public class Rivenditore implements Observer {
 	}
 
 	@Override
-	public void Update() throws InterruptedException {
+	public void update() throws InterruptedException, IOException {
 		this.tipoAuto = acq.getTipoAuto();
 		this.versione = acq.getVersione();
 		createFactory();
+		Notify();
 	}
 	
 	private void createFactory() throws InterruptedException {
@@ -103,5 +108,14 @@ public class Rivenditore implements Observer {
 		System.out.println("RIEPILOGO DELL'AFFARE CON IL SIG."+acq.getNome()+" :");
 		System.out.print("Numero di auto vendute: "+autoVendute);
 		System.out.print(", guadagno totale: "+this.getProfitto()+" €.");
+	}
+
+	public int getAutoScelta() {
+		this.autoScelta = acq.getTipoAuto();
+		return this.autoScelta;
+	}
+
+	public void setAutoScelta(int autoScelta) {
+		this.autoScelta = autoScelta;
 	}
 }

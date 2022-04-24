@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public interface Observer {
-	public void Update() throws InterruptedException;
+	public void update() throws InterruptedException, IOException;
 }

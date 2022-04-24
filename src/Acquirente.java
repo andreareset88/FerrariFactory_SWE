@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class Acquirente extends Subject {
 	private int tipoAuto;
 	private int versione;
@@ -29,7 +31,7 @@ public class Acquirente extends Subject {
 		return instance;
 	}
 	
-	public void scegliMacchina(int tipo, int versione) throws InterruptedException {
+	public void scegliMacchina(int tipo, int versione) throws InterruptedException, IOException {
 		tipoAuto = tipo;
 		this.versione = versione;
 		Notify();
@@ -42,16 +44,16 @@ public class Acquirente extends Subject {
 		if(tipo == 0) {
 			if(version == 0)
 				return lf;
-			else return lf+(int)(Math.random()*31);
+			else return lf + 16;
 		}
 		if(tipo == 1) {
 			if(version == 0)
 				return sf;
-			else return sf+(int)(Math.random()*31);
+			else return sf + 20;
 		}
 		if(version == 0)
 			return tr;
-		return tr+(int)(Math.random()*31);
+		return tr + 23;
 	}
 
 	public float calcolaPolizza(int cv){
