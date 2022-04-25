@@ -33,7 +33,7 @@ public final class MostraAuto implements Observer{
         ImageIcon imageIcon = new ImageIcon(image);
         JFrame jFrame = new JFrame();
         jFrame.setLayout(new FlowLayout());
-        jFrame.setSize(2000, 2000);
+        jFrame.setSize(2048, 1536);
         JLabel jLabel = new JLabel();
         jLabel.setIcon(imageIcon);
         jFrame.add(jLabel);
