@@ -95,6 +95,7 @@ public class main {
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
 		acq.detach(riv);
+		riv.detach(gestore);
 		riv.mostraResoconto(autoVendute);
 	}
 }

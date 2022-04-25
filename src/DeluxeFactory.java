@@ -1,4 +1,4 @@
-public class DeluxeFactory implements AbstractFactory {
+public final class DeluxeFactory implements AbstractFactory {
 	private Acquirente acq;
 	private PaymentStrategy method;
 	private Catalogo catalogo;

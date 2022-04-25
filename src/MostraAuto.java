@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class MostraAuto implements Observer{
+public final class MostraAuto implements Observer{
 
     private Rivenditore riv;
 
@@ -33,7 +33,7 @@ public class MostraAuto implements Observer{
         ImageIcon imageIcon = new ImageIcon(image);
         JFrame jFrame = new JFrame();
         jFrame.setLayout(new FlowLayout());
-        jFrame.setSize(1000, 1000);
+        jFrame.setSize(2000, 2000);
         JLabel jLabel = new JLabel();
         jLabel.setIcon(imageIcon);
         jFrame.add(jLabel);

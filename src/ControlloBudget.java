@@ -1,4 +1,4 @@
-public class ControlloBudget {
+public final class ControlloBudget {
     private static Acquirente acq;
 
     public static boolean checkBudget(float price){

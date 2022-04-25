@@ -2,7 +2,7 @@
 
 import java.io.IOException;
 
-public class Rivenditore extends Subject implements Observer {
+public final class Rivenditore extends Subject implements Observer {
 	private Acquirente acq;
 	private int tipoAuto;
 	private int versione;

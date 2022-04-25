@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class Acquirente extends Subject {
+public final class Acquirente extends Subject {
 	private int tipoAuto;
 	private int versione;
 	private float budget;

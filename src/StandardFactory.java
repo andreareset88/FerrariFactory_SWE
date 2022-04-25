@@ -1,4 +1,4 @@
-public class StandardFactory implements AbstractFactory {
+public final class StandardFactory implements AbstractFactory {
 	private Acquirente acq;
 	private PaymentStrategy method;
 	private Catalogo catalogo;

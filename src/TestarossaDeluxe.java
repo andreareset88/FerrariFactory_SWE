@@ -1,4 +1,4 @@
-public class TestarossaDeluxe implements Testarossa {
+public final class TestarossaDeluxe implements Testarossa {
 	private int hp;
 	private boolean spareWheel;
 	private float price;

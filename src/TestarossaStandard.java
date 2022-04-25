@@ -1,4 +1,4 @@
-public class TestarossaStandard implements Testarossa {
+public final class TestarossaStandard implements Testarossa {
 	private int hp;
 	private boolean spareWheel;
 	private float price;

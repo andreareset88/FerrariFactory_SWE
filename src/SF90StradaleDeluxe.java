@@ -1,4 +1,4 @@
-public class SF90StradaleDeluxe implements SF90Stradale{
+public final class SF90StradaleDeluxe implements SF90Stradale{
 	private int hp;
 	private boolean satNav;
 	private boolean leatherWheel;

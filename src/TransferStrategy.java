@@ -1,4 +1,4 @@
-public class TransferStrategy implements PaymentStrategy {
+public final class TransferStrategy implements PaymentStrategy {
 	private Acquirente acq;
 
 	private Rivenditore riv;

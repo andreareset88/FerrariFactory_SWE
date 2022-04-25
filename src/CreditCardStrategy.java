@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class CreditCardStrategy implements PaymentStrategy {
+public final class CreditCardStrategy implements PaymentStrategy {
 	private Acquirente acq;
 
 	private Rivenditore riv;
