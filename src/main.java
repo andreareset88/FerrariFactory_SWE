@@ -31,13 +31,13 @@ public class main {
 					System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
 					if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
 						riv.effettuaRevisione();
-					cat.autoDisponibili();
 				} else {
 					System.out.println(" Polizza troppo alta, ordine annullato...");
 					cat.setNumeroSf90Stradale(cat.getNumeroSf90Stradale() + 1);
 				}
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
+		cat.autoDisponibili();
 		Thread.sleep(5000);
 		riv.pubblicizza();
 		if(acq.getIndiceGradimento() >= 50) {
@@ -59,13 +59,13 @@ public class main {
 					System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
 					if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
 						riv.effettuaRevisione();
-					cat.autoDisponibili();
 				} else {
 					System.out.println(" Polizza troppo alta, ordine annullato...");
 					cat.setNumeroLaFerrari(cat.getNumeroLaFerrari() + 1);
 				}
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
+		cat.autoDisponibili();
 		Thread.sleep(5000);
 		riv.pubblicizza();
 		if(acq.getIndiceGradimento() >= 50) {
@@ -87,13 +87,13 @@ public class main {
 					System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
 					if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
 						riv.effettuaRevisione();
-					cat.autoDisponibili();
 				}  else {
 					System.out.println(" Polizza troppo alta, ordine annullato...");
 					cat.setNumeroTestarossa(cat.getNumeroTestarossa() + 1);
 				}
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
+		cat.autoDisponibili();
 		acq.detach(riv);
 		riv.detach(gestore);
 		riv.mostraResoconto(autoVendute);
