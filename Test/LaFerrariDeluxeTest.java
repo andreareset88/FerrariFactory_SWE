@@ -32,7 +32,7 @@ public class LaFerrariDeluxeTest {
     }
 
     @AfterClass
-    public static void tearDown() {
+    public static void deallocate() {
         acq = null;
         cat = null;
         riv = null;

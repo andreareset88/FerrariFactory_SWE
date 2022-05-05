@@ -8,7 +8,8 @@ public class AcquirenteTest {
 
     @BeforeClass
     public static void initialize() {
-        acq = Acquirente.getInstance(1,1, 7500000, "Charles", 789543, 997, "MN654GH");
+        // Acquirente inizializzato con sf90 deluxe
+        acq = Acquirente.getInstance(1,1, 10000000, "Charles", 789543, 997, "MN654GH");
         assertNotNull("Acquirente non inizializzato", acq);
     }
 
@@ -20,16 +21,17 @@ public class AcquirenteTest {
     }
     @Test
     public void attesaSF90DeluxeMaggioreUguale75(){
-        assertTrue("Tempo di attesa non corretto", acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione()) >= 75);
+        assertEquals("SF90 deluxe richiede 95", 95, acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione()));
         acq.setVersione(0);
         assertEquals("SF90 standard richiede 75", 75, acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione()));
     }
 
     @Test
     public void polizzaSF90uguale23500LaFerrari21000(){
-        assertEquals("Polizza SF90 sbagliata", 23500, acq.calcolaPolizza(1050), 0.0);
-        acq.setTipoAuto(0); // imposto LaFerrari
-        assertEquals("Polizza LaFerrari sbagliata", 21000, acq.calcolaPolizza(963), 0.0);
+        SF90StradaleDeluxe sf90StradaleDeluxe = new SF90StradaleDeluxe(1050, true, true, 5000000, acq, null, null);
+        assertEquals("Polizza SF90 sbagliata", 23500, acq.calcolaPolizza(sf90StradaleDeluxe.getHp()), 0.0);
+        LaFerrariDeluxe ferrariDeluxe = new LaFerrariDeluxe(963, true, true, 3000000, acq, null, null);
+        assertEquals("Polizza LaFerrari sbagliata", 21000, acq.calcolaPolizza(ferrariDeluxe.getHp()), 0.0);
     }
 
     @Test
@@ -43,7 +45,8 @@ public class AcquirenteTest {
 
     @Test
     public void cancellaOrdineSeMaggiore40PercentoBudget(){
-        assertFalse("Ordine cancellato anche se costo rientra nella soglia", acq.cancellaOrdine(acq.calcolaPolizza(1050)));
+        SF90StradaleDeluxe sf90StradaleDeluxe = new SF90StradaleDeluxe(1050, true, true, 5000000, acq, null, null);
+        assertFalse("Ordine cancellato anche se costo rientra nella soglia", acq.cancellaOrdine(acq.calcolaPolizza(sf90StradaleDeluxe.getHp())));
         assertTrue("Oridne non cancellato se costo troppo alto", acq.cancellaOrdine(5000000));
     }
     @AfterClass

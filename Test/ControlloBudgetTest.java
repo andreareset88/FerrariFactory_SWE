@@ -19,8 +19,9 @@ public class ControlloBudgetTest {
     }
     @Test
     public void cancellaSeBudgetMinorePrezzo(){
-        assertTrue("Acquisto non consentito", ControlloBudget.checkBudget(4000000));
+        assertTrue("Acquisto non consentito con prezzo giusto", ControlloBudget.checkBudget(4000000));
         assertTrue("Acquisto non consentito con prezzo giusto", ControlloBudget.checkBudget(5000000));
+        assertFalse("Acquisto consentito anche con budget piccolo", ControlloBudget.checkBudget(5000001));
     }
 
     @After
