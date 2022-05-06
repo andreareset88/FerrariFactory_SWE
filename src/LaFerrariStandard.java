@@ -1,11 +1,11 @@
 public final class LaFerrariStandard implements LaFerrari{
-	private int hp;
+	private final int hp;
 	private boolean satNav = false;
 	private boolean leatherWheel = false;
-	private float price;
+	private final float price;
 	private Acquirente acq;
 	private PaymentStrategy method;
-	private Catalogo catalogo;
+	private final Catalogo catalogo;
 	
 	public LaFerrariStandard(int hp, boolean satNav, boolean leatherWheel, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
@@ -36,10 +36,6 @@ public final class LaFerrariStandard implements LaFerrari{
 				}
 				System.out.println("INVIO COMPLETATO!");
 				System.out.println("E' stata scelta la versione BASE, che comprende un motore Ferrari a benzina da " + hp + " cv");
-				if (satNav)
-					System.out.print(" , il sistema di navigazione");
-				if (leatherWheel)
-					System.out.print(" , un volante in pelle");
 				System.out.println(acq.getNome() + " , l'auto Le verrà consegnata tra " + acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione()) + " giorni");
 				return this;
 			} else {

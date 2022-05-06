@@ -1,10 +1,10 @@
 public final class TestarossaStandard implements Testarossa {
-	private int hp;
-	private boolean spareWheel;
-	private float price;
+	private final int hp;
+	private final boolean spareWheel;
+	private final float price;
 	private Acquirente acq;
 	private PaymentStrategy method;
-	private Catalogo catalogo;
+	private final Catalogo catalogo;
 	
 	public TestarossaStandard(int hp, boolean spareWheel, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
@@ -35,7 +35,7 @@ public final class TestarossaStandard implements Testarossa {
 				System.out.println("INVIO COMPLETATO!");
 				System.out.print("E' stata scelta la versione BASE, che include un motore a benzina da " + hp + " cv");
 				if (spareWheel)
-					System.out.println(" e il volante in pelle.");
+					System.out.println(" e la ruota di scorta.");
 				System.out.println(acq.getNome() + " , l'auto Le verrà consegnata tra " + acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione()) + " giorni");
 				return this;
 			} else {
@@ -49,12 +49,6 @@ public final class TestarossaStandard implements Testarossa {
 	}
 	public boolean isSpareWheel() {
 		return spareWheel;
-	}
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-	public void setSpareWheel(boolean spareWheel) {
-		this.spareWheel = spareWheel;
 	}
 	public float getPrice() {
 		return price;

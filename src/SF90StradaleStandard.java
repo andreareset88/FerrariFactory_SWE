@@ -1,16 +1,16 @@
 public final class SF90StradaleStandard implements SF90Stradale {
-	private int hp;
+	private final int hp;
 	private boolean satNav = false;
-	private boolean leatherWheel = false;
-	private float price;
+	private boolean adas = false;
+	private final float price;
 	private Acquirente acq;
 	private PaymentStrategy method;
-	private Catalogo catalogo;
+	private final Catalogo catalogo;
 	
-	public SF90StradaleStandard(int hp, boolean satNav, boolean leatherWheel, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
+	public SF90StradaleStandard(int hp, boolean satNav, boolean adas, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
 		this.satNav = satNav;
-		this.leatherWheel = leatherWheel;
+		this.adas = adas;
 		this.price = price;
 		this.acq = acq;
 		this.method = method;
@@ -49,18 +49,6 @@ public final class SF90StradaleStandard implements SF90Stradale {
 	}
 	public boolean isSatNav() {
 		return satNav;
-	}
-	public boolean isLeatherWheel() {
-		return leatherWheel;
-	}
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-	public void setSatNav(boolean satNav) {
-		this.satNav = satNav;
-	}
-	public void setLeatherWheel(boolean leatherWheel) {
-		this.leatherWheel = leatherWheel;
 	}
 	public float getPrice() {
 		return price;

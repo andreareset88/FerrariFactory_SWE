@@ -1,11 +1,11 @@
 public final class LaFerrariDeluxe implements LaFerrari {
-	private int hp;
-	private boolean satNav;
-	private boolean leatherWheel;
-	private float price;
+	private final int hp;
+	private final boolean satNav;
+	private final boolean leatherWheel;
+	private final float price;
 	private Acquirente acq;
 	private PaymentStrategy method;
-	private Catalogo catalogo;
+	private final Catalogo catalogo;
 
 	
 	public LaFerrariDeluxe(int hp, boolean satNav, boolean leatherWheel, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {

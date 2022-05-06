@@ -1,16 +1,16 @@
 public final class SF90StradaleDeluxe implements SF90Stradale{
-	private int hp;
-	private boolean satNav;
-	private boolean leatherWheel;
-	private float price;
+	private final int hp;
+	private final boolean satNav;
+	private final boolean adas;
+	private final float price;
 	private Acquirente acq;
 	private PaymentStrategy method;
-	private Catalogo catalogo;
+	private final Catalogo catalogo;
 	
-	public SF90StradaleDeluxe(int hp, boolean satNav, boolean leatherWheel, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
+	public SF90StradaleDeluxe(int hp, boolean satNav, boolean adas, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
 		this.satNav = satNav;
-		this.leatherWheel = leatherWheel;
+		this.adas = adas;
 		this.price = price;
 		this.acq = acq;
 		this.method = method;
@@ -38,8 +38,8 @@ public final class SF90StradaleDeluxe implements SF90Stradale{
 				System.out.print("E' stata scelta la versione DELUXE, che include un motore ibrido da " + hp + " cv");
 				if (satNav)
 					System.out.print(" , il sistema di navigazione");
-				if (leatherWheel)
-					System.out.println(" , il volante in pelle");
+				if (adas)
+					System.out.println(" , il sistema di assistenza alla guida");
 				System.out.println(acq.getNome() + " , l'auto Le verrà consegnata tra " + acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione()) + " giorni");
 				return this;
 			} else {
@@ -54,17 +54,8 @@ public final class SF90StradaleDeluxe implements SF90Stradale{
 	public boolean isSatNav() {
 		return satNav;
 	}
-	public boolean isLeatherWheel() {
-		return leatherWheel;
-	}
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-	public void setSatNav(boolean satNav) {
-		this.satNav = satNav;
-	}
-	public void setLeatherWheel(boolean leatherWheel) {
-		this.leatherWheel = leatherWheel;
+	public boolean isAdas() {
+		return adas;
 	}
 	public float getPrice() {
 		return price;
