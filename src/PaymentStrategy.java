@@ -1,3 +1,3 @@
 public interface PaymentStrategy {
-	public void pay(float amount) throws InterruptedException;
+	void pay(float amount) throws InterruptedException;
 }

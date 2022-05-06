@@ -1,3 +1,3 @@
 public interface LaFerrari {
-	public LaFerrari create() throws InterruptedException;
+	LaFerrari create() throws InterruptedException;
 }

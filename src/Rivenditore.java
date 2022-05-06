@@ -114,8 +114,4 @@ public final class Rivenditore extends Subject implements Observer {
 		this.autoScelta = acq.getTipoAuto();
 		return this.autoScelta;
 	}
-
-	public void setAutoScelta(int autoScelta) {
-		this.autoScelta = autoScelta;
-	}
 }
