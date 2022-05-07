@@ -76,14 +76,6 @@ public final class Rivenditore extends Subject implements Observer {
 		System.out.println("Revisione completata!");
 	}
 
-	public int getTipoAuto() {
-		return tipoAuto;
-	}
-
-	public int getVersione() {
-		return versione;
-	}
-
 	public float aggiornaProfitto(float euro){
 		float guadagno = this.getProfitto();
 		guadagno += euro;
