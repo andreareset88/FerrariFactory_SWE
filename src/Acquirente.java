@@ -4,10 +4,10 @@ public final class Acquirente extends Subject {
 	private int tipoAuto;
 	private int versione;
 	private float budget;
-	private String nome;
-	private int cardNumber;
-	private int cvv;
-	private String IBAN;
+	private final String nome;
+	private final int cardNumber;
+	private final int cvv;
+	private final String IBAN;
 	private int indiceGradimento = 0;
 	private int kmPercorsi = 0;
 	private int giorniPassati = 0;
@@ -139,21 +139,6 @@ public final class Acquirente extends Subject {
 		this.budget = budget;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public void setCardNumber(int cardNumber) {
-		this.cardNumber = cardNumber;
-	}
-
-	public void setCvv(int cvv) {
-		this.cvv = cvv;
-	}
-
-	public void setIBAN(String iBAN) {
-		IBAN = iBAN;
-	}
 
 	public int getIndiceGradimento() {
 		return indiceGradimento;

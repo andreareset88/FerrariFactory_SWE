@@ -10,17 +10,16 @@ public class main {
 		Acquirente acq = Acquirente.getInstance(1, 1, 10000000, "Charles", 789543, 997, "MN654GH");
 		Rivenditore riv = Rivenditore.getInstance(acq, null, cat);
 		MostraAuto gestore = new MostraAuto(riv);
-		gestore.setRiv();
 		int autoVendute = 0;
 		ControlloBudget.setAcq(acq);
 		riv.pubblicizza();
 		if(acq.getIndiceGradimento() > 50) {
-			// Qui entrano in gioco Abstract Factory e Observer
 			if(cat.getNumeroSf90Stradale() > 0) {
 				System.out.println("Scegliere metodo di pagamento (0 per carta di credito, 1 per bonifico)");
 				Scanner scanner = new Scanner(System.in);
 				int metodo = scanner.nextInt();
 				riv.setMethod(metodo);
+				// Qui entrano in gioco Abstract Factory e Observer
 				acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
 				cat.setNumeroSf90Stradale(cat.getNumeroSf90Stradale() - 1);
 				float polizza = acq.calcolaPolizza(1050);

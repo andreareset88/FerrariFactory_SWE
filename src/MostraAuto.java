@@ -11,6 +11,7 @@ public final class MostraAuto implements Observer{
 
     public MostraAuto(Rivenditore riv){
         this.riv = riv;
+        this.riv.attach(this);
     }
 
     @Override
@@ -39,9 +40,5 @@ public final class MostraAuto implements Observer{
         jFrame.add(jLabel);
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    public void setRiv() {
-        this.riv.attach(this);
     }
 }
