@@ -1,3 +1,10 @@
+package AbstractFactory;
+
+import AbstractFactory.LaFerrari;
+import Catalogo.*;
+import Observer.*;
+import Strategy.*;
+
 public final class LaFerrariDeluxe implements LaFerrari {
 	private final int hp;
 	private final boolean satNav;
@@ -29,7 +36,7 @@ public final class LaFerrariDeluxe implements LaFerrari {
 		if(catalogo.isLaFerrari()) {
 			if (ControlloBudget.checkBudget(this.getPrice())) {
 				paga(method);
-				System.out.println("E' in corso l'invio dell'ordine alla fabbrica per la LaFerrari...");
+				System.out.println("E' in corso l'invio dell'ordine alla fabbrica per la AbstractFactory.LaFerrari...");
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e) {

@@ -1,3 +1,7 @@
+package Observer;
+
+import Observer.Observer;
+
 import java.io.IOException;
 import java.util.ArrayList;
 

@@ -1,16 +1,21 @@
-public final class SF90StradaleDeluxe implements SF90Stradale{
+package AbstractFactory;
+
+import AbstractFactory.Testarossa;
+import Catalogo.*;
+import Observer.*;
+import Strategy.*;
+
+public final class TestarossaStandard implements Testarossa {
 	private final int hp;
-	private final boolean satNav;
-	private final boolean adas;
+	private final boolean spareWheel;
 	private final float price;
 	private Acquirente acq;
 	private PaymentStrategy method;
 	private final Catalogo catalogo;
 	
-	public SF90StradaleDeluxe(int hp, boolean satNav, boolean adas, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
+	public TestarossaStandard(int hp, boolean spareWheel, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
-		this.satNav = satNav;
-		this.adas = adas;
+		this.spareWheel = spareWheel;
 		this.price = price;
 		this.acq = acq;
 		this.method = method;
@@ -24,22 +29,20 @@ public final class SF90StradaleDeluxe implements SF90Stradale{
 	}
 	
 	@Override
-	public SF90Stradale create() throws InterruptedException {
-		if(catalogo.isSf90Stradale()) {
+	public Testarossa create() throws InterruptedException {
+		if(catalogo.isTestarossa()) {
 			if (ControlloBudget.checkBudget(this.getPrice())) {
 				paga(method);
-				System.out.println("Invio dell'ordine alla fabbrica per la SF90 Stradale in corso...");
+				System.out.println("Invio dell'ordine alla fabbrica per la AbstractFactory.Testarossa...");
 				try {
 					Thread.sleep(10000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				System.out.println("INVIO COMPLETATO!");
-				System.out.print("E' stata scelta la versione DELUXE, che include un motore ibrido da " + hp + " cv");
-				if (satNav)
-					System.out.print(" , il sistema di navigazione");
-				if (adas)
-					System.out.println(" , il sistema di assistenza alla guida");
+				System.out.print("E' stata scelta la versione BASE, che include un motore a benzina da " + hp + " cv");
+				if (spareWheel)
+					System.out.println(" e la ruota di scorta.");
 				System.out.println(acq.getNome() + " , l'auto Le verrà consegnata tra " + acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione()) + " giorni");
 				return this;
 			} else {
@@ -51,11 +54,8 @@ public final class SF90StradaleDeluxe implements SF90Stradale{
 	public int getHp() {
 		return hp;
 	}
-	public boolean isSatNav() {
-		return satNav;
-	}
-	public boolean isAdas() {
-		return adas;
+	public boolean isSpareWheel() {
+		return spareWheel;
 	}
 	public float getPrice() {
 		return price;
@@ -63,6 +63,5 @@ public final class SF90StradaleDeluxe implements SF90Stradale{
 	public Acquirente getAcquirente() {
 		return acq;
 	}
-	
 	
 }

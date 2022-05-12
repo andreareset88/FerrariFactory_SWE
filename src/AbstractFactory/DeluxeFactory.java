@@ -1,3 +1,10 @@
+package AbstractFactory;
+
+import AbstractFactory.AbstractFactory;
+import Catalogo.*;
+import Observer.*;
+import Strategy.*;
+
 public final class DeluxeFactory implements AbstractFactory {
 	private Acquirente acq;
 	private PaymentStrategy method;

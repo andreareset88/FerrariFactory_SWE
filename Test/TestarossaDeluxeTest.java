@@ -1,3 +1,9 @@
+import AbstractFactory.ControlloBudget;
+import AbstractFactory.TestarossaDeluxe;
+import Catalogo.Catalogo;
+import Observer.Acquirente;
+import Observer.Rivenditore;
+import Strategy.TransferStrategy;
 import org.junit.*;
 
 import static org.junit.Assert.*;

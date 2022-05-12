@@ -1,3 +1,8 @@
+import AbstractFactory.*;
+import Catalogo.*;
+import Observer.*;
+
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -6,7 +11,7 @@ public class main {
 	public static void main(String[] args) throws InterruptedException, IOException {
 
 		Catalogo cat = new Catalogo();
-		// Acquirente inizializzato con SF90 Stradale deluxe
+		// Observer.Acquirente inizializzato con SF90 Stradale deluxe
 		Acquirente acq = Acquirente.getInstance(1, 1, 10000000, "Charles", 789543, 997, "MN654GH");
 		Rivenditore riv = Rivenditore.getInstance(acq, null, cat);
 		MostraAuto gestore = new MostraAuto(riv);
@@ -19,7 +24,7 @@ public class main {
 				Scanner scanner = new Scanner(System.in);
 				int metodo = scanner.nextInt();
 				riv.setMethod(metodo);
-				// Qui entrano in gioco Abstract Factory e Observer
+				// Qui entrano in gioco Abstract Factory e Observer.Observer
 				acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
 				cat.setNumeroSf90Stradale(cat.getNumeroSf90Stradale() - 1);
 				float polizza = acq.calcolaPolizza(1050);
@@ -40,8 +45,7 @@ public class main {
 		Thread.sleep(5000);
 		riv.pubblicizza();
 		if(acq.getIndiceGradimento() >= 50) {
-			// LaFerrari standard
-			//acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
+			// AbstractFactory.LaFerrari standard
 			if(cat.getNumeroLaFerrari() > 0) {
 				acq.setTipoAuto(0);
 				acq.setVersione(0);
@@ -69,8 +73,7 @@ public class main {
 		Thread.sleep(5000);
 		riv.pubblicizza();
 		if(acq.getIndiceGradimento() >= 50) {
-			// Testarossa deluxe
-			//acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
+			// AbstractFactory.Testarossa deluxe
 			if(cat.getNumeroTestarossa() > 0) {
 				acq.setTipoAuto(2);
 				acq.setVersione(1);

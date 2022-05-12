@@ -1,3 +1,5 @@
+package Observer;
+
 import java.io.IOException;
 
 public interface Observer {

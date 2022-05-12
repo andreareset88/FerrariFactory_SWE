@@ -1,3 +1,9 @@
+package Strategy;
+
+import Observer.Acquirente;
+import Observer.Rivenditore;
+import Strategy.PaymentStrategy;
+
 import java.util.Scanner;
 
 public final class CreditCardStrategy implements PaymentStrategy {

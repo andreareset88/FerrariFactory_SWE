@@ -1,3 +1,5 @@
+package Catalogo;
+
 public final class Catalogo {
     private int numeroLaFerrari = 0;
     private int numeroSf90Stradale = 0;

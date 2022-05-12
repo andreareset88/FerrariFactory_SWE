@@ -17,7 +17,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Observer",
+					"name": "Observer.Observer",
 					"defaultDiagram": true,
 					"ownedViews": [
 						{
@@ -64,7 +64,7 @@
 											"top": 116,
 											"width": 108.74169921875,
 											"height": 13,
-											"text": "Subject"
+											"text": "Observer.Subject"
 										},
 										{
 											"_type": "LabelView",
@@ -146,7 +146,7 @@
 											"top": 139,
 											"width": 108.74169921875,
 											"height": 13,
-											"text": "+attach(Observer)",
+											"text": "+attach(Observer.Observer)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -163,7 +163,7 @@
 											"top": 154,
 											"width": 108.74169921875,
 											"height": 13,
-											"text": "+detach(Observer)",
+											"text": "+detach(Observer.Observer)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -286,7 +286,7 @@
 											"top": 124,
 											"width": 80.57080078125,
 											"height": 13,
-											"text": "Observer"
+											"text": "Observer.Observer"
 										},
 										{
 											"_type": "LabelView",
@@ -1110,7 +1110,7 @@
 											"top": 350,
 											"width": 108.74169921875,
 											"height": 13,
-											"text": "+attach(Observer)",
+											"text": "+attach(Observer.Observer)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1127,7 +1127,7 @@
 											"top": 365,
 											"width": 108.74169921875,
 											"height": 13,
-											"text": "+detach(Observer)",
+											"text": "+detach(Observer.Observer)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1634,7 +1634,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Subject",
+					"name": "Observer.Subject",
 					"operations": [
 						{
 							"_type": "UMLOperation",
@@ -1650,7 +1650,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGArdYvlbPiZ1s="
 									},
-									"name": "Observer",
+									"name": "Observer.Observer",
 									"type": ""
 								}
 							],
@@ -1670,7 +1670,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGArdZ8ZrPsin8="
 									},
-									"name": "Observer",
+									"name": "Observer.Observer",
 									"type": ""
 								}
 							],
@@ -1693,7 +1693,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Observer",
+					"name": "Observer.Observer",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -1841,7 +1841,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGArdsklrXtgOA="
 									},
-									"name": "Observer",
+									"name": "Observer.Observer",
 									"type": ""
 								}
 							]
@@ -1860,7 +1860,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGArdtO0LYFE3U="
 									},
-									"name": "Observer",
+									"name": "Observer.Observer",
 									"type": ""
 								}
 							]
@@ -1891,7 +1891,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGAreKp07jk6v0="
 					},
-					"name": "AbstractFactory",
+					"name": "AbstractFactory.AbstractFactory",
 					"ownedViews": [
 						{
 							"_type": "UMLInterfaceView",
@@ -1937,7 +1937,7 @@
 											"top": 196,
 											"width": 105.853515625,
 											"height": 13,
-											"text": "AbstractFactory"
+											"text": "AbstractFactory.AbstractFactory"
 										},
 										{
 											"_type": "LabelView",
@@ -5515,7 +5515,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGAreKp07jk6v0="
 					},
-					"name": "AbstractFactory",
+					"name": "AbstractFactory.AbstractFactory",
 					"operations": [
 						{
 							"_type": "UMLOperation",

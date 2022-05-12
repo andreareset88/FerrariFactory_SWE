@@ -1,4 +1,6 @@
 
+import AbstractFactory.*;
+import Observer.*;
 import org.junit.*;
 
 import static org.junit.Assert.*;
@@ -8,16 +10,16 @@ public class AcquirenteTest {
 
     @BeforeClass
     public static void initialize() {
-        // Acquirente inizializzato con sf90 deluxe
+        // Observer.Acquirente inizializzato con sf90 deluxe
         acq = Acquirente.getInstance(1,1, 10000000, "Charles", 789543, 997, "MN654GH");
-        assertNotNull("Acquirente non inizializzato", acq);
+        assertNotNull("Observer.Acquirente non inizializzato", acq);
     }
 
     @Before
     public void setUp() throws Exception {
         acq.setTipoAuto(1);
         acq.setVersione(1);
-        assertNotNull("Acquirente non inizializzato", acq);
+        assertNotNull("Observer.Acquirente non inizializzato", acq);
     }
     @Test
     public void attesaSF90DeluxeMaggioreUguale75(){
@@ -31,7 +33,7 @@ public class AcquirenteTest {
         SF90StradaleDeluxe sf90StradaleDeluxe = new SF90StradaleDeluxe(1050, true, true, 5000000, acq, null, null);
         assertEquals("Polizza SF90 sbagliata", 23500, acq.calcolaPolizza(sf90StradaleDeluxe.getHp()), 0.0);
         LaFerrariDeluxe ferrariDeluxe = new LaFerrariDeluxe(963, true, true, 3000000, acq, null, null);
-        assertEquals("Polizza LaFerrari sbagliata", 21000, acq.calcolaPolizza(ferrariDeluxe.getHp()), 0.0);
+        assertEquals("Polizza AbstractFactory.LaFerrari sbagliata", 21000, acq.calcolaPolizza(ferrariDeluxe.getHp()), 0.0);
     }
 
     @Test

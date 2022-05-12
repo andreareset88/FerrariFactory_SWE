@@ -1,3 +1,9 @@
+package Strategy;
+
+import Observer.Acquirente;
+import Observer.Rivenditore;
+import Strategy.PaymentStrategy;
+
 public final class TransferStrategy implements PaymentStrategy {
 	private Acquirente acq;
 

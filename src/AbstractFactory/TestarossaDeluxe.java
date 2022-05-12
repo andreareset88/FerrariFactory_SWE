@@ -1,4 +1,11 @@
-public final class TestarossaStandard implements Testarossa {
+package AbstractFactory;
+
+import AbstractFactory.Testarossa;
+import Catalogo.*;
+import Observer.*;
+import Strategy.*;
+
+public final class TestarossaDeluxe implements Testarossa {
 	private final int hp;
 	private final boolean spareWheel;
 	private final float price;
@@ -6,7 +13,7 @@ public final class TestarossaStandard implements Testarossa {
 	private PaymentStrategy method;
 	private final Catalogo catalogo;
 	
-	public TestarossaStandard(int hp, boolean spareWheel, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
+	public TestarossaDeluxe(int hp, boolean spareWheel, float price, Acquirente acq, PaymentStrategy method, Catalogo catalogo) {
 		this.hp = hp;
 		this.spareWheel = spareWheel;
 		this.price = price;
@@ -26,16 +33,16 @@ public final class TestarossaStandard implements Testarossa {
 		if(catalogo.isTestarossa()) {
 			if (ControlloBudget.checkBudget(this.getPrice())) {
 				paga(method);
-				System.out.println("Invio dell'ordine alla fabbrica per la Testarossa...");
+				System.out.println("Invio dell'ordine alla fabbrica per la AbstractFactory.Testarossa...");
 				try {
 					Thread.sleep(10000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				System.out.println("INVIO COMPLETATO!");
-				System.out.print("E' stata scelta la versione BASE, che include un motore a benzina da " + hp + " cv");
+				System.out.print("E' stata scelta la versione DELUXE, che include un motore a benzina da " + hp + " cv ");
 				if (spareWheel)
-					System.out.println(" e la ruota di scorta.");
+					System.out.println(" e la ruota di scorta");
 				System.out.println(acq.getNome() + " , l'auto Le verrà consegnata tra " + acq.calcolaAttesa(acq.getTipoAuto(), acq.getVersione()) + " giorni");
 				return this;
 			} else {
@@ -44,6 +51,7 @@ public final class TestarossaStandard implements Testarossa {
 			}
 		} else return null;
 	}
+	
 	public int getHp() {
 		return hp;
 	}
@@ -56,5 +64,4 @@ public final class TestarossaStandard implements Testarossa {
 	public Acquirente getAcquirente() {
 		return acq;
 	}
-	
 }

@@ -1,3 +1,9 @@
+import AbstractFactory.ControlloBudget;
+import AbstractFactory.LaFerrariDeluxe;
+import Catalogo.Catalogo;
+import Observer.Acquirente;
+import Observer.Rivenditore;
+import Strategy.TransferStrategy;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -22,7 +28,7 @@ public class LaFerrariDeluxeTest {
     @Test
     public void creaLaFerrariDeluxeTest() throws InterruptedException {
         cat.setNumeroLaFerrari(1);
-        assertNotNull("LaFerrari Deluxe non creata", laferrari.create());
+        assertNotNull("AbstractFactory.LaFerrari Deluxe non creata", laferrari.create());
     }
 
     @Test

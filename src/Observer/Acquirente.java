@@ -1,3 +1,5 @@
+package Observer;
+
 import java.io.IOException;
 
 public final class Acquirente extends Subject {

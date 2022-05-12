@@ -1,3 +1,5 @@
+import AbstractFactory.ControlloBudget;
+import Observer.Acquirente;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -15,7 +17,7 @@ public class ControlloBudgetTest {
 
     @Before
     public void setUp() {
-        assertNotNull("Acquirente non inizializzato", acq);
+        assertNotNull("Observer.Acquirente non inizializzato", acq);
     }
     @Test
     public void cancellaSeBudgetMinorePrezzo(){

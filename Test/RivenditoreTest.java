@@ -1,3 +1,6 @@
+import Catalogo.Catalogo;
+import Observer.Acquirente;
+import Observer.Rivenditore;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +29,7 @@ public class RivenditoreTest {
     @Test
     public void checkAutoDisponibili(){
         cat.setNumeroLaFerrari(3);
-        assertTrue("LaFerrari non disponibile", cat.isLaFerrari());
+        assertTrue("AbstractFactory.LaFerrari non disponibile", cat.isLaFerrari());
         cat.setNumeroSf90Stradale(0);
         assertFalse("SF90 Stradale non disponibile", cat.isSf90Stradale());
     }

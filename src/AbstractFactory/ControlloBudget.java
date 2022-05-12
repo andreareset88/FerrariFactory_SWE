@@ -1,3 +1,7 @@
+package AbstractFactory;
+
+import Observer.Acquirente;
+
 public final class ControlloBudget {
     private static Acquirente acq;
 
