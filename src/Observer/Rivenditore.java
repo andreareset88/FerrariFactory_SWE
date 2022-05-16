@@ -1,4 +1,5 @@
-package Observer;// Voglio che venga istanziato solo un rivenditore, uso il singleton pattern...
+package Observer;
+// Voglio che venga istanziato solo un rivenditore, uso il singleton pattern...
 
 import AbstractFactory.*;
 import Catalogo.*;
