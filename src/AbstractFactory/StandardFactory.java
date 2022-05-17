@@ -6,7 +6,7 @@ import Observer.*;
 import Strategy.*;
 
 public final class StandardFactory implements AbstractFactory {
-	private Acquirente acq;
+	private final Acquirente acq;
 	private PaymentStrategy method;
 	private Catalogo catalogo;
 	

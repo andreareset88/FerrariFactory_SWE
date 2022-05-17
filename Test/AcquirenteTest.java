@@ -10,7 +10,7 @@ public class AcquirenteTest {
 
     @BeforeClass
     public static void initialize() {
-        // Observer.Acquirente inizializzato con sf90 deluxe
+        // Acquirente inizializzato con sf90 deluxe
         acq = Acquirente.getInstance(1,1, 10000000, "Charles", 789543, 997, "MN654GH");
         assertNotNull("Observer.Acquirente non inizializzato", acq);
     }

@@ -10,7 +10,7 @@ public final class SF90StradaleDeluxe implements SF90Stradale {
 	private final boolean satNav;
 	private final boolean adas;
 	private final float price;
-	private Acquirente acq;
+	private final Acquirente acq;
 	private PaymentStrategy method;
 	private final Catalogo catalogo;
 	

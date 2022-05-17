@@ -9,7 +9,7 @@ public final class TestarossaDeluxe implements Testarossa {
 	private final int hp;
 	private final boolean spareWheel;
 	private final float price;
-	private Acquirente acq;
+	private final Acquirente acq;
 	private PaymentStrategy method;
 	private final Catalogo catalogo;
 	

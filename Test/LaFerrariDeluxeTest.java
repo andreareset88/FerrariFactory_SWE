@@ -1,9 +1,7 @@
-import AbstractFactory.ControlloBudget;
-import AbstractFactory.LaFerrariDeluxe;
-import Catalogo.Catalogo;
-import Observer.Acquirente;
-import Observer.Rivenditore;
-import Strategy.TransferStrategy;
+import AbstractFactory.*;
+import Catalogo.*;
+import Observer.*;
+import Strategy.*;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;

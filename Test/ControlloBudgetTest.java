@@ -1,5 +1,5 @@
-import AbstractFactory.ControlloBudget;
-import Observer.Acquirente;
+import AbstractFactory.*;
+import Observer.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;

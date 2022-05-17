@@ -1,5 +1,4 @@
-import AbstractFactory.ControlloBudget;
-import AbstractFactory.SF90StradaleStandard;
+import AbstractFactory.*;
 import Catalogo.Catalogo;
 import Observer.Acquirente;
 import Observer.Rivenditore;
@@ -23,13 +22,12 @@ public class SF90StradaleStandardTest {
         sf90standard = new SF90StradaleStandard(1000, false, false, 4500000, acq, new TransferStrategy(acq, riv), cat);
     }
 
-    // Il test deve stabilire che non verrà creato l'oggetto anche se è disponibile, a causa del budget basso
     @Test
     public void creaSF90StandardTest() throws InterruptedException {
         cat.setNumeroSf90Stradale(3);
         assertNotNull("Oggetto non creato correttamente", sf90standard.create());
     }
-
+    // Il test deve stabilire che non verrà creato l'oggetto anche se è disponibile, a causa del budget basso
     @Test
     public void budgetBassoTest() throws InterruptedException {
         acq.setBudget(4499999);

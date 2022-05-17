@@ -10,7 +10,7 @@ public final class LaFerrariDeluxe implements LaFerrari {
 	private final boolean satNav;
 	private final boolean leatherWheel;
 	private final float price;
-	private Acquirente acq;
+	private final Acquirente acq;
 	private PaymentStrategy method;
 	private final Catalogo catalogo;
 

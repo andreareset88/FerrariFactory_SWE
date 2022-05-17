@@ -1,6 +1,5 @@
-import Catalogo.Catalogo;
-import Observer.Acquirente;
-import Observer.Rivenditore;
+import Catalogo.*;
+import Observer.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
