@@ -79,7 +79,11 @@ public final class Acquirente extends Subject {
 
 	public boolean checkRevisione(int giorniPassati, int kmPercorsi) throws InterruptedException {
 		if(giorniPassati >= 1095 || kmPercorsi >= 20000){
-			System.out.println("E' necessario portare la vettura in officina per la revisione");
+			if(giorniPassati >= 1095)
+				System.out.print(giorniPassati+" giorni trascorsi,");
+			if(kmPercorsi >= 20000)
+				System.out.print(kmPercorsi+" km percorsi ");
+			System.out.println("è il momento di portare l'auto ad effettuare la revisione");
 			return true;
 		} else {
 			System.out.println("Non è ancora il momento per la revisione");

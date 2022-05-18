@@ -19,7 +19,7 @@ public class AcquirenteTest {
     public void setUp() throws Exception {
         acq.setTipoAuto(1);
         acq.setVersione(1);
-        assertNotNull("Observer.Acquirente non inizializzato", acq);
+        assertNotNull("Acquirente non inizializzato", acq);
     }
     @Test
     public void attesaSF90DeluxeMaggioreUguale75(){
@@ -33,7 +33,7 @@ public class AcquirenteTest {
         SF90StradaleDeluxe sf90StradaleDeluxe = new SF90StradaleDeluxe(1050, true, true, 5000000, acq, null, null);
         assertEquals("Polizza SF90 sbagliata", 23500, acq.calcolaPolizza(sf90StradaleDeluxe.getHp()), 0.0);
         LaFerrariDeluxe ferrariDeluxe = new LaFerrariDeluxe(963, true, true, 3000000, acq, null, null);
-        assertEquals("Polizza AbstractFactory.LaFerrari sbagliata", 21000, acq.calcolaPolizza(ferrariDeluxe.getHp()), 0.0);
+        assertEquals("Polizza LaFerrari sbagliata", 21000, acq.calcolaPolizza(ferrariDeluxe.getHp()), 0.0);
     }
 
     @Test
@@ -43,6 +43,8 @@ public class AcquirenteTest {
         assertTrue("Richiamo revisione errato", acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()));
         acq.setGiorniPassati(1000); // Con 1000 giorni e 5000 km non è tempo di revisione
         assertFalse("Richiamo revisione errato", acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()));
+        acq.setKmPercorsi(20000); // Con 20000 km deve essere effettuata la revisione
+        assertTrue("Richiamo revisione errato", acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()));
     }
 
     @Test

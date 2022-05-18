@@ -26,7 +26,7 @@ public class LaFerrariDeluxeTest {
     @Test
     public void creaLaFerrariDeluxeTest() throws InterruptedException {
         cat.setNumeroLaFerrari(1);
-        assertNotNull("AbstractFactory.LaFerrari Deluxe non creata", laferrari.create());
+        assertNotNull("LaFerrari Deluxe non creata", laferrari.create());
     }
 
     @Test

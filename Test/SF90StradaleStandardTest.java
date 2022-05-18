@@ -1,8 +1,7 @@
 import AbstractFactory.*;
-import Catalogo.Catalogo;
-import Observer.Acquirente;
-import Observer.Rivenditore;
-import Strategy.TransferStrategy;
+import Catalogo.*;
+import Observer.*;
+import Strategy.*;
 import org.junit.*;
 
 import static org.junit.Assert.*;

@@ -28,9 +28,9 @@ public class RivenditoreTest {
     @Test
     public void checkAutoDisponibili(){
         cat.setNumeroLaFerrari(3);
-        assertTrue("AbstractFactory.LaFerrari non disponibile", cat.isLaFerrari());
+        assertTrue("LaFerrari non disponibile", cat.isLaFerrari());
         cat.setNumeroSf90Stradale(0);
-        assertFalse("SF90 Stradale non disponibile", cat.isSf90Stradale());
+        assertFalse("SF90 Stradale disponibile", cat.isSf90Stradale());
     }
 
     @Test
