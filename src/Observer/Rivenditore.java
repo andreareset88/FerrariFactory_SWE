@@ -8,7 +8,7 @@ import Strategy.*;
 import java.io.IOException;
 
 public final class Rivenditore extends Subject implements Observer {
-	private Acquirente acq;
+	private final Acquirente acq;
 	private int tipoAuto;
 	private int versione;
 	private float profitto = 0;
