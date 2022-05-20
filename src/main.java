@@ -28,16 +28,18 @@ public class main {
 				acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
 				cat.setNumeroSf90Stradale(cat.getNumeroSf90Stradale() - 1);
 				float polizza = acq.calcolaPolizza(1050);
-				if (!acq.cancellaOrdine(polizza)) {
-					autoVendute ++;
-					acq.usaAuto();
-					Thread.sleep(5000);
-					System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
-					if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
-						riv.effettuaRevisione();
-				} else {
-					System.out.println(" Polizza troppo alta, ordine annullato...");
-					cat.setNumeroSf90Stradale(cat.getNumeroSf90Stradale() + 1);
+				if (acq.getBudget() >= 5000000) {
+					if (!acq.cancellaOrdine(polizza)) {
+						autoVendute++;
+						acq.usaAuto();
+						Thread.sleep(5000);
+						System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
+						if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
+							riv.effettuaRevisione();
+					} else {
+						System.out.println(" Polizza troppo alta, ordine annullato...");
+						cat.setNumeroSf90Stradale(cat.getNumeroSf90Stradale() + 1);
+					}
 				}
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
@@ -56,16 +58,18 @@ public class main {
 				acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
 				cat.setNumeroLaFerrari(cat.getNumeroLaFerrari() - 1);
 				float polizza = acq.calcolaPolizza(900);
-				if(!acq.cancellaOrdine(polizza)) {
-					acq.usaAuto();
-					autoVendute ++;
-					Thread.sleep(5000);
-					System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
-					if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
-						riv.effettuaRevisione();
-				} else {
-					System.out.println(" Polizza troppo alta, ordine annullato...");
-					cat.setNumeroLaFerrari(cat.getNumeroLaFerrari() + 1);
+				if (acq.getBudget() >= 2500000) {
+					if (!acq.cancellaOrdine(polizza)) {
+						acq.usaAuto();
+						autoVendute++;
+						Thread.sleep(5000);
+						System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
+						if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
+							riv.effettuaRevisione();
+					} else {
+						System.out.println(" Polizza troppo alta, ordine annullato...");
+						cat.setNumeroLaFerrari(cat.getNumeroLaFerrari() + 1);
+					}
 				}
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
@@ -84,16 +88,18 @@ public class main {
 				acq.scegliMacchina(acq.getTipoAuto(), acq.getVersione());
 				cat.setNumeroTestarossa(cat.getNumeroTestarossa() - 1);
 				float polizza = acq.calcolaPolizza(470);
-				if(!acq.cancellaOrdine(polizza)) {
-					acq.usaAuto();
-					autoVendute ++;
-					Thread.sleep(5000);
-					System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
-					if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
-						riv.effettuaRevisione();
-				}  else {
-					System.out.println(" Polizza troppo alta, ordine annullato...");
-					cat.setNumeroTestarossa(cat.getNumeroTestarossa() + 1);
+				if (acq.getBudget() >= 800000) {
+					if (!acq.cancellaOrdine(polizza)) {
+						acq.usaAuto();
+						autoVendute++;
+						Thread.sleep(5000);
+						System.out.println("Sono passati " + acq.getGiorniPassati() + " giorni e sono stati percorsi " + acq.getKmPercorsi() + " km dalla data dell'acquisto");
+						if (acq.checkRevisione(acq.getGiorniPassati(), acq.getKmPercorsi()))
+							riv.effettuaRevisione();
+					} else {
+						System.out.println(" Polizza troppo alta, ordine annullato...");
+						cat.setNumeroTestarossa(cat.getNumeroTestarossa() + 1);
+					}
 				}
 			}
 		} else System.out.println(acq.getNome()+" non è interessato all'acquisto della vettura scelta.");
